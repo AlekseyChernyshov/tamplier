@@ -27,6 +27,116 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
+// Функция для получения информации о лицензии (глобальная, доступна везде)
+function getLicenseInfo(planOrCard) {
+  let licenseCard;
+  let plan;
+  
+  // Если передан элемент (карточка), используем его, иначе ищем по плану
+  if (planOrCard instanceof Element) {
+    licenseCard = planOrCard;
+    plan = licenseCard.getAttribute("data-plan");
+  } else {
+    plan = planOrCard;
+    // Находим карточку лицензии по плану (обычные лицензии или маркетплейс)
+    licenseCard = document.querySelector(`.license-card[data-plan="${plan}"]`);
+    
+    // Если не найдена обычная карточка, ищем в маркетплейсе
+    if (!licenseCard) {
+      licenseCard = document.querySelector(`.marketplace-card .marketplace-card__buy-btn[data-plan="${plan}"]`)?.closest('.marketplace-card');
+    }
+  }
+  
+  if (!licenseCard) return null;
+
+  // Получаем название лицензии
+  const titleElement = licenseCard.querySelector(".license-card__title, .marketplace-card__title");
+  const licenseName = titleElement ? titleElement.textContent.trim() : "";
+
+  // Получаем количество пользователей
+  let userCount = "";
+  if (plan === "enterprise" || plan === "marketplace-portal") {
+    // Для энтерпрайз и маркетплейс портала берем значение из селекта
+    const userSelect = licenseCard.querySelector(".user-count-select, .marketplace-user-count-select");
+    userCount = userSelect
+      ? userSelect.value
+      : plan === "marketplace-portal"
+      ? "50"
+      : "250";
+  } else if (plan === "onprem-portal") {
+    // Для корпоративного портала берем из текста в конкретной карточке
+    const userCountElement = licenseCard.querySelector(".license-card__subheader-title");
+    userCount = userCountElement ? userCountElement.textContent.trim() : "50";
+  } else {
+    // Для остальных планов берем из заголовка
+    // Проверяем сначала marketplace-card, потом license-card
+    const userCountElement = licenseCard.querySelector(
+      ".marketplace-card__subheader-title, .license-card__subheader-title, .marketplace-card__users"
+    );
+    userCount = userCountElement ? userCountElement.textContent.trim() : "";
+  }
+
+  // Получаем период оплаты
+  let periodText = "";
+  if (plan && plan.startsWith('marketplace-')) {
+    // Для маркетплейса всегда 12 месяцев
+    periodText = "12 мес";
+  } else if (!plan || licenseCard.classList.contains('marketplace-card')) {
+    // Если это карточка маркетплейса (даже без плана)
+    // Проверяем subprice для определения периода
+    const subpriceElement = licenseCard.querySelector(".marketplace-card__subheader-subprice");
+    if (subpriceElement && subpriceElement.textContent.includes('мес')) {
+      periodText = "мес";
+    } else {
+      periodText = "12 мес";
+    }
+  } else {
+    const licGroup = licenseCard.getAttribute("data-lic-group");
+    if (licGroup === "cloud") {
+      const activeBillTab = document.querySelector(".licenses__bill.active");
+      // const billingPeriod = activeBillTab
+      //   ? activeBillTab.getAttribute("data-bill")
+      //   : "month";
+      periodText = "месяц";
+    } else {
+      // Для коробочных лицензий период всегда 12 месяцев
+      periodText = "12 мес";
+    }
+  }
+
+  // Получаем цену
+  let price = "";
+  if (plan && plan.startsWith('marketplace-')) {
+    // Для маркетплейса берем текущую цену из subheader-price
+    const priceElement = licenseCard.querySelector(".marketplace-card__subheader-price");
+    price = priceElement ? priceElement.textContent.trim() : "";
+  } else if (!plan || licenseCard.classList.contains('marketplace-card')) {
+    // Если это карточка маркетплейса (даже без плана) или план не указан
+    const priceElement = licenseCard.querySelector(".marketplace-card__subheader-price");
+    price = priceElement ? priceElement.textContent.trim() : "";
+  } else {
+    const licGroup = licenseCard.getAttribute("data-lic-group");
+    if (licGroup === "cloud") {
+      // Для облачных лицензий используем старую логику
+      const priceElement = licenseCard.querySelector(".price-current");
+      price = priceElement ? priceElement.textContent.trim() : "";
+    } else {
+      // Для коробочных лицензий цена в другом элементе
+      const priceElement = licenseCard.querySelector(
+        ".license-card__subheader-price"
+      );
+      price = priceElement ? priceElement.textContent.trim() : "";
+    }
+  }
+
+  return {
+    licenseName,
+    userCount,
+    price,
+    periodText
+  }
+}
+
 // Наблюдаем за всеми элементами услуг
 document.addEventListener("DOMContentLoaded", () => {
   const serviceCards = document.querySelectorAll(".service-card");
@@ -300,116 +410,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Обработчик для селекта количества пользователей в лицензии Корпоративный портал
-  const onpremPortalSelect = document.querySelector(
-    '.user-count-select[data-plan="onprem-portal"]'
-  );
-  if (onpremPortalSelect) {
-    // Актуальные цены для лицензии Корпоративный портал (только 12 месяцев)
-    const onpremPortalPrices = {
-      50: 159000,
-      100: 229000,
-      250: 249000,
-      500: 599000,
-    };
+  // Удален, так как теперь используются отдельные карточки для каждого количества пользователей
+  // const onpremPortalSelect = document.querySelector(
+  //   '.user-count-select[data-plan="onprem-portal"]'
+  // );
+  // if (onpremPortalSelect) {
+  //   // Актуальные цены для лицензии Корпоративный портал (только 12 месяцев)
+  //   const onpremPortalPrices = {
+  //     50: 159000,
+  //     100: 229000,
+  //     250: 249000,
+  //     500: 599000,
+  //   };
 
-    onpremPortalSelect.addEventListener("change", (e) => {
-      const selectedValue = e.target.value;
-      const priceCurrent = document.querySelector(
-        '.license-card[data-plan="onprem-portal"] .license-card__subheader-price'
-      );
+  //   onpremPortalSelect.addEventListener("change", (e) => {
+  //     const selectedValue = e.target.value;
+  //     const priceCurrent = document.querySelector(
+  //       '.license-card[data-plan="onprem-portal"] .license-card__subheader-price'
+  //     );
 
-      // Обновляем цену согласно актуальному прайсу
-      const newPrice = onpremPortalPrices[selectedValue] || 159000;
+  //     // Обновляем цену согласно актуальному прайсу
+  //     const newPrice = onpremPortalPrices[selectedValue] || 159000;
 
-      if (priceCurrent) {
-        priceCurrent.textContent = `${newPrice.toLocaleString("ru-RU")}₽`;
-      }
-    });
-  }
+  //     if (priceCurrent) {
+  //       priceCurrent.textContent = `${newPrice.toLocaleString("ru-RU")}₽`;
+  //     }
+  //   });
+  // }
 
-  // Функция для получения информации о лицензии
-  function getLicenseInfo(plan) {
-    // Находим карточку лицензии по плану (обычные лицензии или маркетплейс)
-    let licenseCard = document.querySelector(`.license-card[data-plan="${plan}"]`);
-    
-    // Если не найдена обычная карточка, ищем в маркетплейсе
-    if (!licenseCard) {
-      licenseCard = document.querySelector(`.marketplace-card .marketplace-card__buy-btn[data-plan="${plan}"]`)?.closest('.marketplace-card');
-    }
-    
-    if (!licenseCard) return null;
-
-    // Получаем название лицензии
-    const titleElement = licenseCard.querySelector(".license-card__title, .marketplace-card__title");
-    const licenseName = titleElement ? titleElement.textContent.trim() : "";
-
-    // Получаем количество пользователей
-    let userCount = "";
-    if (plan === "enterprise" || plan === "onprem-portal" || plan === "marketplace-portal") {
-      // Для энтерпрайз, корпоративного портала и маркетплейс портала берем значение из селекта
-      const userSelect = licenseCard.querySelector(".user-count-select, .marketplace-user-count-select");
-      userCount = userSelect
-        ? userSelect.value
-        : plan === "onprem-portal"
-        ? "50"
-        : plan === "marketplace-portal"
-        ? "50"
-        : "250";
-    } else {
-      // Для остальных планов берем из заголовка
-      const userCountElement = licenseCard.querySelector(
-        ".license-card__subheader-title, .marketplace-card__users"
-      );
-      userCount = userCountElement ? userCountElement.textContent.trim() : "";
-    }
-
-    // Получаем период оплаты
-    let periodText = "";
-    if (plan.startsWith('marketplace-')) {
-      // Для маркетплейса всегда 12 месяцев
-      periodText = "12 мес";
-    } else {
-      const licGroup = licenseCard.getAttribute("data-lic-group");
-      if (licGroup === "cloud") {
-        const activeBillTab = document.querySelector(".licenses__bill.active");
-        const billingPeriod = activeBillTab
-          ? activeBillTab.getAttribute("data-bill")
-          : "month";
-        periodText = billingPeriod === "year" ? "год" : "месяц";
-      } else {
-        // Для коробочных лицензий период всегда 12 месяцев
-        periodText = "12 мес";
-      }
-    }
-
-    // Получаем цену
-    let price = "";
-    if (plan.startsWith('marketplace-')) {
-      // Для маркетплейса берем текущую цену
-      const priceElement = licenseCard.querySelector(".marketplace-card__price-current");
-      price = priceElement ? priceElement.textContent.trim() : "";
-    } else {
-      const licGroup = licenseCard.getAttribute("data-lic-group");
-      if (licGroup === "cloud") {
-        // Для облачных лицензий используем старую логику
-        const priceElement = licenseCard.querySelector(".price-current");
-        price = priceElement ? priceElement.textContent.trim() : "";
-      } else {
-        // Для коробочных лицензий цена в другом элементе
-        const priceElement = licenseCard.querySelector(
-          ".license-card__subheader-price"
-        );
-        price = priceElement ? priceElement.textContent.trim() : "";
-      }
-    }
-
-    return {
-      licenseName,
-      userCount,
-      price,
-      periodText
-    }
-  }
 
   // Обработчик для кнопок "Купить" в лицензиях
   const buyButtons = document.querySelectorAll(".license-card__buy-btn");
@@ -421,6 +449,8 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", (e) => {
         e.preventDefault();
         const plan = button.getAttribute("data-plan");
+        // Находим родительскую карточку лицензии
+        const licenseCard = button.closest(".license-card");
         buyModal.classList.add("active");
         document.body.style.overflow = "hidden";
         waitForB24Form().then((form) => {
@@ -445,7 +475,8 @@ document.addEventListener("DOMContentLoaded", () => {
             })
 
             // Получаем информацию о выбранной лицензии
-            const licenseInfo = getLicenseInfo(plan);
+            // Передаем карточку, если она найдена, иначе план
+            const licenseInfo = licenseCard ? getLicenseInfo(licenseCard) : getLicenseInfo(plan);
             if (price && licenseName && licenseInfo) {
               price.value = licenseInfo.price + ' ' + licenseInfo.periodText;
               licenseName.value = licenseInfo.licenseName + ' ' + licenseInfo.userCount + ' пользователей';
@@ -529,18 +560,37 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", (e) => {
         e.preventDefault();
         const plan = button.getAttribute("data-plan");
-        console.log("Открываем модальное окно покупки для плана маркетплейса:", plan);
+        // Находим родительскую карточку маркетплейса
+        const marketplaceCard = button.closest(".marketplace-card");
         buyModal.classList.add("active");
         document.body.style.overflow = "hidden";
         waitForB24Form().then((form) => {
           if (form) {
-            const buyName = form.querySelector('input[name="name"]');
-            console.log("buyName", buyName);
+            const labels = ['Имя', 'Телефон', 'Email', 'Цена',  'Лицензия'];
+            const allInputs = form.querySelectorAll('input');
+            const price = allInputs[3];
+            const licenseName = allInputs[4];
+            price.disabled = true;
+            licenseName.disabled = true;
+
+            const b24FormFields = form.querySelectorAll('.b24-form-field');
+            b24FormFields.forEach((div, index) => {
+                // Проверяем, есть ли уже лейбл в этом поле
+                const existingLabel = div.querySelector('.buy-modal-label');
+                if (!existingLabel && index < labels.length) {
+                    let label = document.createElement('label');
+                    label.innerHTML = labels[index];
+                    label.classList.add('buy-modal-label');
+                    div.prepend(label);
+                }
+            })
 
             // Получаем информацию о выбранной лицензии
-            const licenseInfo = getLicenseInfo(plan);
-            if (buyName && licenseInfo) {
-              buyName.value = `${licenseInfo.licenseName} - ${licenseInfo.userCount} пользователей - ${licenseInfo.price}/${licenseInfo.periodText}`;
+            // Передаем карточку, если она найдена, иначе план
+            const licenseInfo = marketplaceCard ? getLicenseInfo(marketplaceCard) : getLicenseInfo(plan);
+            if (price && licenseName && licenseInfo) {
+              price.value = licenseInfo.price + ' ' + licenseInfo.periodText;
+              licenseName.value = licenseInfo.licenseName + ' ' + licenseInfo.userCount + ' пользователей';
             }
           }
         });
@@ -732,7 +782,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("caseModal");
   const closeBtn = document.getElementById("closeModal");
-  const clientNameSpan = document.getElementById("clientName");
   const caseBtns = document.querySelectorAll(".case-btn");
   const prevBtn = document.getElementById("casePrev");
   const nextBtn = document.getElementById("caseNext");
@@ -757,8 +806,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Функция открытия модального окна
-  function openModal(clientName, fullReview, fullCase) {
-    clientNameSpan.textContent = clientName;
+  function openModal(fullReview, fullCase) {
+    
     document.getElementById("fullReview").textContent = fullReview;
 
     // Заполняем слайды кейса
@@ -834,10 +883,9 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation(); // Предотвращаем всплытие события для карусели
       currentCaseIndex = index;
-      const clientName = btn.getAttribute("data-client");
       const fullReview = btn.getAttribute("data-review");
       const fullCase = btn.getAttribute("data-case");
-      openModal(clientName, fullReview, fullCase);
+      openModal(fullReview, fullCase);
     });
   });
 
@@ -847,10 +895,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (index >= caseBtns.length) index = 0;
     currentCaseIndex = index;
     const btn = caseBtns[currentCaseIndex];
-    const clientName = btn.getAttribute("data-client");
     const fullReview = btn.getAttribute("data-review");
     const fullCase = btn.getAttribute("data-case");
-    openModal(clientName, fullReview, fullCase);
+    openModal(fullReview, fullCase);
   }
 
   if (prevBtn) {
