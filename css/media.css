@@ -75,6 +75,10 @@
    МОБИЛЬНЫЕ УСТРОЙСТВА
    ======================================== */
 @media (max-width: 768px) {
+
+  .license-card__content-textMain {
+    font-size: 14px;
+  }
   /* Hero секция */
   .hero__container {
     height: auto;
@@ -132,11 +136,11 @@
 
   .carousel-item {
     --width: clamp(220px, 45vw, 300px);
-    --height: clamp(280px, 55vw, 350px);
+    --height: clamp(280px, 70vw, 350px);
   }
 
   .carousel-item .carousel-box {
-    padding: 20px;
+    padding: 15px;
   }
 
   .carousel-avatar {
@@ -229,6 +233,10 @@
    ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ
    ======================================== */
 @media (max-width: 480px) {
+
+  .license-card__title {
+    font-size: 14px;
+  }
   /* Hero секция */
   .hero__container {
     padding: 30px 15px;
@@ -261,7 +269,7 @@
 
   .carousel-item {
     --width: clamp(200px, 50vw, 280px);
-    --height: clamp(250px, 60vw, 320px);
+    --height: clamp(380px, 60vw, 320px);
   }
 
   .carousel-item .carousel-box {
@@ -286,6 +294,10 @@
     font-size: 11px;
     -webkit-line-clamp: 3;
   }
+  
+  .carousel-position {
+    font-size: 12px;
+  }
 
   /* Отключаем все анимации на очень маленьких экранах */
   .carousel__track {
@@ -300,6 +312,10 @@
     transform: none;
     box-shadow: none;
   }
+
+  .license-card__content-textMain {
+    font-size: 12px;
+  }
 }
 
 /* ========================================
@@ -313,7 +329,7 @@
 
   .carousel-item {
     --width: clamp(180px, 55vw, 260px);
-    --height: clamp(220px, 65vw, 300px);
+    --height: clamp(370px, 65vw, 300px);
   }
 
   .carousel-item .carousel-box {
@@ -428,7 +444,7 @@
 
   .carousel-item {
     --width: clamp(200px, 45vw, 300px);
-    --height: clamp(250px, 55vw, 350px);
+    --height: clamp(380px, 70vw, 350px);
   }
 
   .carousel-item .carousel-box {
@@ -611,9 +627,16 @@
 
 /* Мобильные устройства */
 @media (max-width: 768px) {
-  .competencies__title {
+  .competencies__title,
+  .licenses__title,
+  .technical-support__title,
+  .reviews__title {
     font-size: 36px;
     margin-bottom: 40px;
+  }
+
+  .bouncing-dot {
+    display: none;;
   }
 
   .competencies__stairs {
@@ -1179,7 +1202,7 @@
 
   .carousel-item {
     --width: clamp(250px, 40vw, 350px);
-    --height: clamp(300px, 50vw, 400px);
+    --height: clamp(300px, 70vw, 400px);
   }
 
   .carousel-item .carousel-box {
@@ -1187,9 +1210,9 @@
   }
 
   .carousel-avatar {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
   }
 
   .avatar-initial {
@@ -1213,7 +1236,7 @@
 
   .carousel-item {
     --width: clamp(220px, 45vw, 300px);
-    --height: clamp(280px, 55vw, 350px);
+    --height: clamp(380px, 55vw, 350px);
   }
 
   .carousel-item .carousel-box {

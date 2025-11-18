@@ -41,7 +41,11 @@ function getLicenseInfo(planOrCard) {
     // Находим карточку лицензии по плану (обычные лицензии или маркетплейс)
     licenseCard = document.querySelector(`.license-card[data-plan="${plan}"]`);
     
-    // Если не найдена обычная карточка, ищем в маркетплейсе
+    if (!licenseCard) {
+      licenseCard = document.querySelector(`.marketplace-card[data-plan="${plan}"]`);
+    }
+
+    // Если не найдена обычная карточка, ищем в маркетплейсе по кнопке
     if (!licenseCard) {
       licenseCard = document.querySelector(`.marketplace-card .marketplace-card__buy-btn[data-plan="${plan}"]`)?.closest('.marketplace-card');
     }
@@ -55,6 +59,8 @@ function getLicenseInfo(planOrCard) {
 
   // Получаем количество пользователей
   let userCount = "";
+  const marketplaceUsersAttr = licenseCard.getAttribute("data-marketplace-users");
+
   if (plan === "enterprise" || plan === "marketplace-portal") {
     // Для энтерпрайз и маркетплейс портала берем значение из селекта
     const userSelect = licenseCard.querySelector(".user-count-select, .marketplace-user-count-select");
@@ -67,6 +73,8 @@ function getLicenseInfo(planOrCard) {
     // Для корпоративного портала берем из текста в конкретной карточке
     const userCountElement = licenseCard.querySelector(".license-card__subheader-title");
     userCount = userCountElement ? userCountElement.textContent.trim() : "50";
+  } else if (marketplaceUsersAttr) {
+    userCount = marketplaceUsersAttr;
   } else {
     // Для остальных планов берем из заголовка
     // Проверяем сначала marketplace-card, потом license-card
@@ -108,11 +116,11 @@ function getLicenseInfo(planOrCard) {
   let price = "";
   if (plan && plan.startsWith('marketplace-')) {
     // Для маркетплейса берем текущую цену из subheader-price
-    const priceElement = licenseCard.querySelector(".marketplace-card__subheader-price");
+    const priceElement = licenseCard.querySelector(".marketplace-card__price-current, .marketplace-card__subheader-price");
     price = priceElement ? priceElement.textContent.trim() : "";
   } else if (!plan || licenseCard.classList.contains('marketplace-card')) {
     // Если это карточка маркетплейса (даже без плана) или план не указан
-    const priceElement = licenseCard.querySelector(".marketplace-card__subheader-price");
+    const priceElement = licenseCard.querySelector(".marketplace-card__price-current, .marketplace-card__subheader-price");
     price = priceElement ? priceElement.textContent.trim() : "";
   } else {
     const licGroup = licenseCard.getAttribute("data-lic-group");
