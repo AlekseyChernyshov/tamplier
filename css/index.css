@@ -308,14 +308,16 @@ img {
 }
 
 .header__logo {
-  height: 600px;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--white-color);
 }
 
-.header__logo img {
+/* .header__logo img {
   height: 100%;
   max-width: 100%;
   display: block;
-}
+} */
 
 .header__nav {
   margin-left: auto;
@@ -1963,11 +1965,12 @@ img {
 }
 
 .marketplace-subtitle {
+  margin-top: 20px;
   text-align: center;
   font-size: 18px;
   font-weight: 700;
   color: var(--main-color);
-  opacity: 0.6;
+  opacity: 0.3;
 } 
 
 /* Стили для переключателей маркетплейса */
@@ -2060,14 +2063,13 @@ img {
 
 .marketplace-card__subheader {
   padding: 16px;
-  background-color: var(--main-color);
 }
 
 .marketplace-card__subheader-title {
   margin: 0;
   font-size: 24px;
   font-weight: 800;
-  color: var(--white-color);
+  color: #ffb349;
   line-height: 1.2;
   text-align: center;
 }
@@ -2082,9 +2084,9 @@ img {
 }
 
 .marketplace-card__subheader-price {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 800;
-  color: var(--white-color);
+  color: #ffb349;
   margin: 8px 0 0;
   line-height: 1.2;
   text-align: center;
@@ -2132,8 +2134,8 @@ img {
 
 .marketplace-card__price-old {
   display: block;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  color: var(--white-color);
   text-decoration: line-through;
   text-align: center;
 }
@@ -2189,9 +2191,8 @@ img {
   position: relative;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #ffffff;
+  background: linear-gradient(135deg, #4ec9ff, rgba(0, 138, 255, 0.4));
   box-shadow: 0 18px 40px rgba(20, 37, 63, 0.08);
-  padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -2210,6 +2211,7 @@ img {
 }
 
 .marketplace-card--modern .marketplace-card__header {
+  background-color: var(--white-color);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -2228,8 +2230,8 @@ img {
 }
 
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__badge {
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background: rgba(56, 105, 255, 0.1);
+  color: var(--main-color);
 }
 
 .marketplace-card--modern .marketplace-card__title {
@@ -2240,14 +2242,14 @@ img {
 }
 
 .marketplace-group--onprem .marketplace-card--modern {
-  background: linear-gradient(145deg, #0b3b4e, #0f4e63);
-  color: var(--white-color);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, #4ec9ff, rgba(0, 138, 255, 0.4));
+  color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__title,
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__description {
-  color: var(--white-color);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .marketplace-card__description {
@@ -2258,8 +2260,8 @@ img {
 
 .marketplace-card--modern .marketplace-card__subheader {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   gap: 16px;
 }
 
@@ -2278,7 +2280,7 @@ img {
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__price-current,
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__price-note,
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__price-old {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--white-color);
 }
 
 .marketplace-card--modern .marketplace-card__price-note {
@@ -2297,7 +2299,7 @@ img {
 }
 
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__content {
-  border-top-color: rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(0, 0, 0, 0.06);
 }
 
 .marketplace-card--modern .marketplace-card__perk {
@@ -2319,20 +2321,19 @@ img {
 }
 
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__perk {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__perk::before {
-  background: #ffd479;
+  background: var(--main-color);
 }
 
 .marketplace-card--modern .marketplace-card__buy-btn {
-  width: auto;
   align-self: flex-start;
   padding: 12px 24px;
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(1, 99, 255, 0.08);
+  background: var(--white-color);
   color: var(--main-color);
 }
 
@@ -2343,14 +2344,15 @@ img {
 }
 
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__buy-btn {
-  border-color: rgba(255, 255, 255, 0.25);
-  background: transparent;
-  color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  background: var(--white-color);
+  color: var(--main-color);
 }
 
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__buy-btn:hover {
-  background: #ffffff;
-  color: #0d3e4f;
+  background: var(--main-color);
+  color: #ffffff;
+  border-color: var(--main-color);
 }
 
 .marketplace-card__user-select--modern {
@@ -2370,8 +2372,8 @@ img {
 }
 
 .marketplace-group--onprem .marketplace-user-count-select--modern {
-  border-color: rgba(255, 255, 255, 0.4);
-  color: var(--white-color);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .marketplace-card__price-wrapper--select {
