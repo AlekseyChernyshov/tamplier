@@ -304,7 +304,8 @@ img {
 .header__container {
   display: flex;
   align-items: center;
-  height: 100px;
+  /* height: 100px; */
+  padding: 0;
 }
 
 .header__logo {
@@ -313,14 +314,14 @@ img {
   color: var(--white-color);
 }
 
-/* .header__logo img {
-  height: 100%;
-  max-width: 100%;
+.header__logo img {
+  max-width: 300px;
   display: block;
-} */
+}
 
 .header__nav {
   margin-left: auto;
+  margin-right: 100px;
 }
 
 .header__list {
@@ -368,9 +369,11 @@ img {
   color: #ffffff;
 }
 
+.header__mail-icon,
+.header__telephone-icon,
 .header__telegram-icon {
-  width: 20px;
-  height: 20px;
+  width: 35px;
+  height: 35px;
   transition: all 0.3s ease;
 }
 

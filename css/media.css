@@ -76,6 +76,27 @@
    ======================================== */
 @media (max-width: 768px) {
 
+  .header__container {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+  
+  .header__logo img {
+    max-width: 340px;
+  }
+
+  .header__nav {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .header__mail-icon,
+.header__telephone-icon,
+.header__telegram-icon  {
+  width: 28px;
+  height: 28px;
+}
+
   .license-card__content-textMain {
     font-size: 14px;
   }
@@ -1296,6 +1317,11 @@
     justify-content: center;
     gap: 16px;
   }
+
+  .marketplace-toolbar {
+    justify-content: center;
+  }
+  
   .license-cards {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
     gap: 20px;
