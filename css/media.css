@@ -8,7 +8,7 @@
 @media (max-width: 1024px) {
   /* Hero секция */
   .hero__container {
-    height: 80vh;
+    /* height: 80vh; */
     padding: 0 20px;
   }
 
@@ -112,8 +112,6 @@
   }
   /* Hero секция */
   .hero__container {
-    height: auto;
-    min-height: 70vh;
     flex-direction: column;
     justify-content: center;
     padding: 40px 20px;
@@ -276,7 +274,7 @@
   .marketplace-title,
   .technical-support__title,
   .competencies__title {
-    font-size: 32px;
+    font-size: 28px !important;
   }
 
   #contacts .contacts__lead {
@@ -296,7 +294,6 @@
   /* Hero секция */
   .hero__container {
     padding: 30px 15px;
-    min-height: 60vh;
   }
 
   .hero__title {
@@ -457,7 +454,6 @@
   /* Hero секция */
   .hero__container {
     flex-direction: row;
-    height: 60vh;
     padding: 20px;
   }
 
