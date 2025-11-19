@@ -75,6 +75,12 @@
    МОБИЛЬНЫЕ УСТРОЙСТВА
    ======================================== */
 @media (max-width: 768px) {
+
+  #footer .footer__container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
   
   .service-card__title {
     height: 50px;
