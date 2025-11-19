@@ -234,8 +234,14 @@
    ======================================== */
 @media (max-width: 480px) {
 
-  .license-card__title {
-    font-size: 14px;
+  .container {
+    padding: 20px 10px;
+  }
+
+  .license-card__title,
+  .marketplace-card__title,
+  .marketplace-card--modern .marketplace-card__title  {
+    font-size: 20px;
   }
   /* Hero секция */
   .hero__container {
@@ -1281,7 +1287,7 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 680px) {
   .licenses {
     padding: 40px 0;
   }
@@ -1320,7 +1326,7 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 680px) {
   .licenses__group--onprem.active {
     min-height: 0;
     align-items: stretch;
@@ -1356,16 +1362,12 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 680px) {
   .marketplace-cards {
     grid-template-columns: 1fr;
     gap: 16px;
     margin: 20px auto;
     padding: 0 10px;
-  }
-
-  .marketplace-card {
-    padding: 20px;
   }
 
   .marketplace-card__title {
@@ -1414,5 +1416,29 @@
   .case-btn {
     padding: 8px 16px;
     font-size: 14px;
+  }
+}
+
+/* Адаптация hero__img для низких экранов */
+@media (max-height: 810px) {
+  .hero__img {
+    max-width: 350px;
+    width: auto;
+    height: auto;
+    opacity: 0.5;
+  }
+}
+
+@media (max-height: 810px) and (max-width: 768px) {
+  .hero__img {
+    max-width: 200px;
+    opacity: 0.4;
+  }
+}
+
+@media (max-height: 810px) and (max-width: 768px) and (orientation: landscape) {
+  .hero__img {
+    max-width: 150px;
+    opacity: 0.3;
   }
 }
