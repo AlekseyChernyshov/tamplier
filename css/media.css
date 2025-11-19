@@ -243,7 +243,8 @@
   .reviews__title,
   .licenses__title,
   .marketplace-title,
-  .technical-support__title {
+  .technical-support__title,
+  .competencies__title {
     font-size: 32px;
   }
 
@@ -703,10 +704,6 @@
 
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
-  .competencies__title {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
 
   .competencies__stairs {
     margin: 30px auto 0;
