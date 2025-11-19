@@ -238,6 +238,24 @@
     padding: 20px 10px;
   }
 
+  .services__title,
+  .industries__title,
+  .reviews__title,
+  .licenses__title,
+  .marketplace-title,
+  .technical-support__title {
+    font-size: 32px;
+  }
+
+  #contacts .contacts__lead {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .contacts__text {
+    text-align: center;
+  }
+
   .license-card__title,
   .marketplace-card__title,
   .marketplace-card--modern .marketplace-card__title  {
@@ -1042,7 +1060,7 @@
   }
 
   #contacts .contacts__lead {
-    font-size: 22px;
+    font-size: 32px;
   }
 
   #contacts .contacts__text {
