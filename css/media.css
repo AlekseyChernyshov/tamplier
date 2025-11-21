@@ -1,14 +1,5 @@
-/* ========================================
-   АДАПТИВНОСТЬ И МЕДИА-ЗАПРОСЫ
-   ======================================== */
-
-/* ========================================
-   ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ
-   ======================================== */
 @media (max-width: 1024px) {
-  /* Hero секция */
   .hero__container {
-    /* height: 80vh; */
     padding: 0 20px;
   }
 
@@ -34,10 +25,9 @@
   }
 
   .hero__img {
-    max-width: 300px;
+    max-width: 330px;
   }
 
-  /* Карусель отзывов */
   .carousel {
     height: 500px;
   }
@@ -70,7 +60,6 @@
     -webkit-line-clamp: 3;
   }
 
-  /* Компетенции */
   .competencies__stairs {
     margin: 50px auto 0;
     padding: 30px 0;
@@ -100,7 +89,6 @@
     font-size: 14px;
   }
 
-  /* Услуги */
   .services__grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -118,7 +106,6 @@
     font-size: 14px;
   }
 
-  /* Карточки тарифов */
   .pricing-cards {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
@@ -165,9 +152,6 @@
   }
 }
 
-/* ========================================
-   МОБИЛЬНЫЕ УСТРОЙСТВА
-   ======================================== */
 @media (max-width: 768px) {
 
   #footer .footer__container {
@@ -204,7 +188,6 @@
   .license-card__content-textMain {
     font-size: 14px;
   }
-  /* Hero секция */
   .hero__container {
     flex-direction: column;
     justify-content: center;
@@ -247,12 +230,10 @@
     padding: 16px;
   }
 
-  /* Скрываем изображение на мобильных */
   .hero__img {
     display: none;
   }
 
-  /* Карусель отзывов */
   .carousel {
     height: 450px;
   }
@@ -285,7 +266,6 @@
     -webkit-line-clamp: 3;
   }
 
-  /* Отключаем все анимации на мобильных для производительности */
   .review-card,
   .review-card__image img,
   .carousel__btn,
@@ -294,7 +274,6 @@
     animation: none !important;
   }
 
-  /* Упрощаем тени на мобильных */
   .review-card {
     box-shadow: 0 5px 20px rgba(0, 92, 115, 0.08);
   }
@@ -303,12 +282,10 @@
     box-shadow: 0 5px 15px rgba(0, 92, 115, 0.15);
   }
 
-  /* Оптимизируем карусель для мобильных */
   .carousel__track {
     transition: transform 0.2s ease-out;
   }
 
-  /* Отключаем сложные эффекты на мобильных */
   .carousel__btn::before {
     display: none;
   }
@@ -318,7 +295,6 @@
     box-shadow: 0 10px 30px rgba(0, 92, 115, 0.15);
   }
 
-  /* Компетенции */
   .competencies__title,
   .licenses__title,
   .technical-support__title,
@@ -368,7 +344,6 @@
     font-size: 14px;
   }
 
-  /* Услуги */
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
@@ -399,7 +374,6 @@
     font-size: 13px;
   }
 
-  /* Карточки тарифов */
   .pricing-cards {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -455,7 +429,6 @@
     height: 12px;
   }
 
-  /* Модальное окно отзыва */
   .feedback-modal__content {
     width: 95%;
     max-width: none;
@@ -475,7 +448,6 @@
     font-size: 20px;
   }
 
-  /* Контакты */
   #contacts .contacts__grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -489,7 +461,6 @@
     font-size: 16px;
   }
 
-  /* Отключение анимаций */
   * {
     animation-duration: 0s !important;
     animation-delay: 0s !important;
@@ -557,7 +528,6 @@
     opacity: 1 !important;
   }
 
-  /* Секция отраслей */
   .industries__title {
     font-size: 36px;
     margin-bottom: 40px;
@@ -593,7 +563,6 @@
     font-size: 13px;
   }
 
-  /* Карусель отзывов (дополнительные стили) */
   .carousel {
     height: 500px;
   }
@@ -626,7 +595,6 @@
     -webkit-line-clamp: 3;
   }
 
-  /* Маркетплейс */
   .marketplace-cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
@@ -637,7 +605,6 @@
     font-size: 28px;
   }
 
-  /* Модальное окно кейсов */
   .case-modal__content {
     margin: 10% auto;
     width: 95%;
@@ -663,9 +630,6 @@
   }
 }
 
-/* ========================================
-   ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ
-   ======================================== */
 @media (max-width: 480px) {
 
   .container {
@@ -696,7 +660,6 @@
   .marketplace-card--modern .marketplace-card__title  {
     font-size: 20px;
   }
-  /* Hero секция */
   .hero__container {
     padding: 30px 15px;
   }
@@ -720,7 +683,6 @@
     font-size: 14px;
   }
 
-  /* Карусель отзывов */
   .carousel {
     height: 400px;
   }
@@ -757,7 +719,6 @@
     font-size: 12px;
   }
 
-  /* Стрелки навигации для карусели отзывов */
   .carousel-nav-btn {
     display: flex;
     align-items: center;
@@ -802,7 +763,6 @@
     right: 10px;
   }
 
-  /* Отключаем все анимации на очень маленьких экранах */
   .carousel__track {
     transition: none !important;
   }
@@ -820,7 +780,6 @@
     font-size: 12px;
   }
 
-  /* Компетенции */
   .competencies__stairs {
     margin: 30px auto 0;
     padding: 15px 0;
@@ -850,7 +809,6 @@
     font-size: 13px;
   }
 
-  /* Услуги */
   .services__grid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -881,7 +839,6 @@
     font-size: 12px;
   }
 
-  /* Кнопка "Оставить отзыв" внутри карусели */
   .carousel-feedback-btn {
     top: 15px;
     right: 15px;
@@ -897,7 +854,6 @@
     height: 14px;
   }
 
-  /* Карточки тарифов */
   .pricing-cards {
     gap: 15px;
     margin: 20px auto 0;
@@ -951,7 +907,6 @@
     height: 10px;
   }
 
-  /* Модальное окно отзыва */
   .feedback-modal__content {
     width: 98%;
     border-radius: 10px;
@@ -975,7 +930,6 @@
     min-height: 300px;
   }
 
-  /* Дополнительные стили для карусели */
   .carousel {
     height: 450px;
   }
@@ -1009,11 +963,7 @@
   }
 }
 
-/* ========================================
-   УСТРОЙСТВА С ОГРАНИЧЕННОЙ ПРОИЗВОДИТЕЛЬНОСТЬЮ
-   ======================================== */
 @media (max-width: 360px) {
-  /* Карусель отзывов */
   .carousel {
     height: 350px;
   }
@@ -1046,7 +996,6 @@
     -webkit-line-clamp: 3;
   }
 
-  /* Максимальная оптимизация производительности */
   .carousel__track {
     transition: none !important;
     will-change: auto !important;
@@ -1061,7 +1010,6 @@
     contain: strict;
   }
 
-  /* Убираем все эффекты */
   .review-card {
     box-shadow: none;
     border: 1px solid rgba(0, 92, 115, 0.1);
@@ -1085,11 +1033,7 @@
   }
 }
 
-/* ========================================
-   ЛАНДШАФТНАЯ ОРИЕНТАЦИЯ НА МОБИЛЬНЫХ
-   ======================================== */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* Hero секция */
   .hero__container {
     flex-direction: row;
     padding: 20px;
@@ -1127,7 +1071,6 @@
     font-size: 12px;
   }
 
-  /* Карусель отзывов */
   .carousel {
     height: 350px;
   }
@@ -1160,7 +1103,6 @@
     -webkit-line-clamp: 3;
   }
 
-  /* Дополнительные стили для ландшафтной ориентации */
   .review-card {
     width: 300px;
     padding: 25px 20px;
@@ -1177,9 +1119,6 @@
   }
 }
 
-/* ========================================
-   УСТРОЙСТВА С ВЫСОКИМ DPI
-   ======================================== */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .review-card__image img {
     image-rendering: -webkit-optimize-contrast;
@@ -1187,9 +1126,6 @@
   }
 }
 
-/* ========================================
-   УСТРОЙСТВА С ОГРАНИЧЕННОЙ ПРОИЗВОДИТЕЛЬНОСТЬЮ
-   ======================================== */
 @media (max-width: 480px) and (max-height: 600px) {
   .reviews__carousel {
     padding: 20px 0;
@@ -1204,9 +1140,6 @@
   }
 }
 
-/* ========================================
-   ПОДДЕРЖКА PREFERS-REDUCED-MOTION
-   ======================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1267,21 +1200,6 @@
   }
 }
 
-/* ========================================
-   ДОПОЛНИТЕЛЬНЫЕ ОПТИМИЗАЦИИ
-   ======================================== */
-
-
-/* ========================================
-   АДАПТИВНОСТЬ ДЛЯ КОМПЕТЕНЦИЙ
-   ======================================== */
-
-
-
-
-/* ========================================
-   АДАПТИВНОСТЬ ДЛЯ УСЛУГ
-   ======================================== */
 
 
 
@@ -1292,16 +1210,18 @@
 
 
 
-/* ========================================
-   ДОПОЛНИТЕЛЬНЫЕ МЕДИА-ЗАПРОСЫ ИЗ INDEX.CSS
-   ======================================== */
 
 
 
 
 
 
-/* Адаптивность для лицензий */
+
+
+
+
+
+
 @media (max-width: 1200px) {
   .license-cards {
     grid-template-columns: repeat(3, minmax(220px, 1fr));
@@ -1371,7 +1291,6 @@
   }
 }
 
-/* Адаптивность для маркетплейса */
 @media (max-width: 1200px) {
   .marketplace-cards {
     grid-template-columns: repeat(2, 1fr);
@@ -1406,7 +1325,6 @@
   }
 }
 
-/* Адаптивность для модального окна кейсов */
 @media (max-width: 1200px) {
   .case-modal__nav--outside#casePrev {
     left: 20px;
@@ -1417,7 +1335,6 @@
 }
 
 
-/* Адаптация hero__img для низких экранов */
 @media (max-height: 810px) {
   .hero__img {
     max-width: 350px;

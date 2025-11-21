@@ -9,13 +9,11 @@ html {
 }
 
 
-/* Отключаем анимации карточек для лучшей производительности */
 .review-card,
 .review-card__image img {
   transition: none;
 }
 
-/* Оставляем только анимацию карусели */
 .carousel__track {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -113,7 +111,6 @@ img {
   margin: 0 auto;
 }
 
-/* header */
 
 .burger-menu_button {
   position: fixed;
@@ -342,12 +339,13 @@ img {
   gap: 5px;
 }
 
-/* Стили для телеграм канала в хедере */
 .header__item--telegram {
   margin-left: 20px;
 }
 
-.header__telegram-link {
+.header__telegram-link,
+.header__call-link,
+.header__mail-link {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -361,8 +359,10 @@ img {
   box-shadow: 0 2px 10px rgba(0, 136, 204, 0.3);
 }
 
-.header__telegram-link:hover {
-  background: linear-gradient(135deg, #0077b3, #0099e6);
+.header__telegram-link:hover,
+.header__call-link:hover,
+.header__mail-link:hover {
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
   color: #ffffff;
@@ -380,7 +380,6 @@ img {
   transform: scale(1.1);
 }
 
-/* Стили для email в хедере */
 .header__item--email {
   margin-left: 15px;
 }
@@ -406,7 +405,6 @@ img {
   color: #ffffff;
 }
 
-/* Стили для телефона в хедере */
 .header__item--phone {
   margin-left: 15px;
 }
@@ -432,7 +430,6 @@ img {
   color: #ffffff;
 }
 
-/* hero */
 
 .hero {
   background: linear-gradient(
@@ -530,9 +527,7 @@ img {
   opacity: 0.6;
 }
 
-/*services*/
 
-/* Современные стили для услуг */
 .services {
   background: linear-gradient(180deg, #0d424e 0%, #1a5a6b 20%, #ffffff 100%);
   position: relative;
@@ -590,7 +585,6 @@ img {
   position: relative;
 }
 
-/* Карточка услуги */
 .service-card {
   position: relative;
   background: #ffffff;
@@ -605,7 +599,6 @@ img {
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Убираем псевдоэлемент ::before для производительности */
 
 .service-card__content {
   position: relative;
@@ -650,7 +643,6 @@ img {
   margin: 0;
 }
 
-/* Убираем overlay эффекты для производительности */
 
 .service-card:hover {
   transform: translateY(-5px) scale(1.02);
@@ -658,11 +650,8 @@ img {
   z-index: 5;
 }
 
-/* Отключаем все анимации на мобильных устройствах */
 
-/* Убираем изменение цвета заголовка при hover */
 
-/* Анимация появления */
 .service-card.animate-item {
   animation: slideInUp 0.4s ease forwards;
 }
@@ -678,7 +667,6 @@ img {
   }
 }
 
-/* Прыгающий кружочек */
 .bouncing-dot {
   position: absolute;
   width: 16px;
@@ -721,7 +709,6 @@ img {
 
 
 
-/* industries */
 
 .industries {
   background-color: var(--main-blue);
@@ -756,7 +743,6 @@ img {
   margin-bottom: 80px;
 }
 
-/* Диаграмма отраслей */
 .industries__chart {
   display: flex;
   justify-content: center;
@@ -823,7 +809,6 @@ img {
   pointer-events: none;
 }
 
-/* Начальная высота столбцов (будет анимироваться) */
 .chart-column[data-industry="construction"] .chart-bar__fill {
   height: 0;
   background: linear-gradient(to top, #fff4c7 0%, #ffe1a1 50%, #ffab6f 100%);
@@ -870,7 +855,6 @@ img {
   margin: 0;
 }
 
-/* Анимация появления столбцов */
 .chart-column {
   opacity: 0;
   transform: translateY(50px);
@@ -900,7 +884,6 @@ img {
   }
 }
 
-/* Анимация заполнения столбцов уже определена выше */
 
 @keyframes fillBarConstruction {
   0% {
@@ -935,7 +918,6 @@ img {
   }
 }
 
-/* Hover эффекты */
 .chart-column:hover .chart-bar {
   transform: scale(1.05);
   transition: transform 0.3s ease;
@@ -963,7 +945,6 @@ img {
   filter: brightness(1.2);
 }
 
-/* Комбинированная анимация для столбцов */
 .chart-column[data-industry="construction"] .chart-bar__fill {
   animation: none;
   height: 0;
@@ -979,7 +960,6 @@ img {
   height: 0;
 }
 
-/* Класс для активации анимации */
 .chart-column.animate .chart-bar__fill {
   animation: fillBarConstruction 2s ease-out forwards,
     pulse 3s ease-in-out 3s infinite;
@@ -1004,7 +984,6 @@ img {
   }
 }
 
-/* Добавляем блестящий эффект */
 .chart-bar__fill::after {
   content: "";
   position: absolute;
@@ -1031,9 +1010,7 @@ img {
   }
 }
 
-/* Адаптивность для мобильных устройств */
 
-/* reviews */
 
 .reviews {
   background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
@@ -1083,7 +1060,6 @@ img {
   border-radius: 2px;
 }
 
-/* reviews carousel */
 .carousel {
   position: relative;
   z-index: 1;
@@ -1247,7 +1223,6 @@ img {
   overflow: hidden;
 }
 
-/* competencies */
 
 .competencies {
   background: linear-gradient(180deg, #e9ecef 0%, #d1d5db 20%, #07303a 100%);
@@ -1388,7 +1363,6 @@ img {
   margin: 0;
 }
 
-/* licenses */
 .licenses {
   background: linear-gradient(to bottom, var(--main-blue) 0%, #ffffff 100%);
 }
@@ -1455,7 +1429,6 @@ img {
   display: block;
 }
 
-/* Toolbar: tabs left, billing right */
 .licenses__toolbar {
   display: flex;
   justify-content: space-between;
@@ -1490,7 +1463,6 @@ img {
   color: var(--main-blue);
 }
 
-/* Prices */
 .license-card__subheader-price {
   display: flex;
   flex-direction: column;
@@ -1561,7 +1533,7 @@ img {
 .license-card--featured .license-card__badge {
   background: #ffc72c;
   color: #532400;
-} 
+}
 
 .license-card__header {
   padding: 10px 16px 12px;
@@ -1704,7 +1676,6 @@ img {
   border: 1px dashed rgba(0, 93, 115, 0.2);
 }
 
-/* Enterprise user select */
 .license-card__user-select {
   display: flex;
   flex-direction: column;
@@ -1714,7 +1685,6 @@ img {
 
 .user-count-select {
   background: var(--white-color);
-  /* border: 2px solid rgba(255, 255, 255, 0.3); */
   border-radius: 6px;
   color: var(--main-color);
   font-size: 24px;
@@ -1902,11 +1872,10 @@ img {
 }
 
 
-/* Center on-premises cards */
 .licenses__group--onprem.active {
   display: flex;
   justify-content: center;
-  align-items: center; /* vertical centering of the grid */
+  align-items: center;
   min-height: 60vh;
 }
 
@@ -1917,12 +1886,10 @@ img {
 }
 
 
-/* Секция маркетплейса */
 .marketplace {
   background: linear-gradient(to bottom, #ffffff 0%, #07303a 100%);
 }
 
-/* Стили для заголовка маркетплейса */
 .marketplace-title {
   text-align: center;
   font-size: 42px;
@@ -1952,7 +1919,6 @@ img {
   opacity: 0.3;
 } 
 
-/* Стили для переключателей маркетплейса */
 .marketplace-toolbar {
   display: flex;
   justify-content: flex-start;
@@ -1986,7 +1952,6 @@ img {
   color: var(--main-blue);
 }
 
-/* Группы маркетплейса */
 .marketplace-group {
   display: none;
 }
@@ -1995,7 +1960,6 @@ img {
   display: block;
 }
 
-/* Стили для карточек маркетплейса */
 .marketplace-cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(240px, 1fr));
@@ -2159,7 +2123,6 @@ img {
   box-shadow: none;
 }
 
-/* Современные карточки маркетплейса */
 .marketplace-cards--modern {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
@@ -2366,7 +2329,6 @@ img {
   width: 100%;
 }
 
-/* contacts */
 
 .technical-support {
   background: linear-gradient(180deg, #07303a 0%, #0a3a45 50%, #ffffff 100%);
@@ -2393,7 +2355,6 @@ img {
   background: var(--white-color);
 }
 
-/* Стили для карточек тарифов */
 .pricing-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -2411,7 +2372,7 @@ img {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
-  min-height: 300px; /* Минимальная высота вместо фиксированной */
+  min-height: 300px;
   min-width: 350px;
   display: flex;
   flex-direction: column;
@@ -2585,7 +2546,6 @@ img {
   transform: none;
 }
 
-/* Кнопка "Оставить отзыв" внутри карусели */
 .carousel-feedback-btn {
   position: absolute;
   top: 20px;
@@ -2629,7 +2589,6 @@ img {
   flex-shrink: 0;
 }
 
-/* Стили для кнопки "Кейс клиента" в цвете аватара */
 .case-btn {
   background: linear-gradient(
     135deg,
@@ -2662,7 +2621,6 @@ img {
   transform: translateY(0);
 }
 
-/* Стили для модального окна */
 .case-modal {
   display: none;
   position: fixed;
@@ -2700,7 +2658,6 @@ img {
   transform: scale(1);
 }
 
-/* Навигационные стрелки в модалке кейса */
 .case-modal__nav {
   position: absolute;
   top: 50%;
@@ -2737,7 +2694,6 @@ img {
   right: 10px;
 }
 
-/* Внешние стрелки — снаружи контента, по бокам окна */
 .case-modal__nav--outside {
   top: 50%;
   transform: translateY(-50%);
@@ -2751,7 +2707,6 @@ img {
 }
 
 
-/* Стили для модального окна отзыва */
 .feedback-modal {
   position: fixed;
   top: 0;
@@ -2979,7 +2934,6 @@ img {
   text-align: justify;
 }
 
-/* Стили для блоков кейса */
 .case-block {
   background: #f8f9fa;
   border-left: 4px solid var(--main-color);
@@ -3004,7 +2958,6 @@ img {
   margin: 0;
 }
 
-/* Стили для слайдера кейса */
 .case-slider {
   position: relative;
   overflow: hidden;
@@ -3024,7 +2977,6 @@ img {
   transform: translateX(0);
 }
 
-/* Навигация слайдера */
 .case-slider-nav {
   display: flex;
   justify-content: center;
@@ -3093,7 +3045,6 @@ img {
 }
 
 
-/* contacts (форма внизу страницы) */
 #contacts {
   background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
 }
@@ -3177,9 +3128,6 @@ img {
   background-color: var(--main-color);
 }
 
-/* #contacts .b24-form-btn:hover {
-  background-color: var(--main-blue) !important;
-} */
 
 #contacts .b24-form-container iframe {
   width: 100%;
@@ -3188,7 +3136,6 @@ img {
   border-radius: 8px;
 }
 
-/* footer */
 #footer {
   background-color: #07303a;
   color: white;

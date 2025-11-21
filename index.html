@@ -15,7 +15,6 @@
         <a href="#" class="header__logo">
           <img src="imgs/main_header.png" alt="logo" />
         </a>
-        <!-- <p class="header__logo">Tamplier Digital</p> -->
         <nav class="header__nav">
           <ul class="header__list list-reset">
             <li class="header__item header__item--telegram">
@@ -32,7 +31,7 @@
               </a>
             </li>
             <li class="header__item header__item--email">
-              <a href="mailto:vip@tamplier.su" class="header__telegram-link">
+              <a href="mailto:vip@tamplier.su" class="header__mail-link">
                 <img
                 src="imgs/mail.svg"
                 alt="Звонок по телефону"
@@ -41,7 +40,7 @@
               </a>
             </li>
             <li class="header__item header__item--telegram">
-              <a href="tel:+78122409050" class="header__telegram-link">
+              <a href="tel:+78122409050" class="header__call-link">
                 <img
                   src="imgs/phone.svg"
                   alt="Звонок по телефону"
@@ -52,7 +51,6 @@
           </ul>
         </nav>
 
-        <!-- Бургер меню -->
         <div class="burger-menu">
           <button class="burger-menu_button">
             <div class="burger-menu_lines"></div>
@@ -85,10 +83,10 @@
               Поддерживаем бизнес, внедряем Битрикс24.
             </p>
             <div class="hero__btn_block">
-              <button class="btn-reset hero__btn glow-on-hover">
+              <button class="btn-reset hero__btn glow-on-hover" id="consultationBtn">
                 Консультация с экспертом
               </button>
-              <button class="btn-reset hero__btn glow-on-hover">
+              <button class="btn-reset hero__btn glow-on-hover" id="calculationBtn">
                 Посчитать внедрение
               </button>
             </div>
@@ -103,7 +101,6 @@
         <div class="container services__container">
           <h2 class="services__title">Наши услуги</h2>
           <div class="services__grid">
-            <!-- Прыгающий кружочек -->
             <div class="bouncing-dot"></div>
             <div class="service-card" data-delay="0">
               <div class="service-card__content">
@@ -292,7 +289,6 @@
           <h2 class="reviews__title">Отзывы</h2>
 
           <div class="carousel">
-            <!-- Кнопка "Оставить отзыв" внутри карусели -->
             <div class="carousel-feedback-btn">
               <button class="feedback-btn-carousel" id="feedbackBtnCarousel">
                 <svg
@@ -309,7 +305,6 @@
               </button>
             </div>
 
-            <!-- Стрелки навигации для мобильных устройств -->
             <button class="carousel-nav-btn carousel-nav-btn--prev" id="carouselPrev" aria-label="Предыдущий отзыв">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M15 18l-6-6 6-6"/>
@@ -730,7 +725,6 @@
             Выберите подходящий тариф под задачи вашей команды. Ниже перечислены
             ключевые возможности каждой редакции.
           </p>
-          <!-- Toolbar: Tabs + Billing -->
           <div class="licenses__toolbar">
             <div class="licenses__tabs" role="tablist">
               <button
@@ -1148,7 +1142,6 @@
             
 
                         <ul class="license-cards license-cards--modern list-reset">
-              <!-- 50 пользователей -->
               <li class="license-card license-card--modern" data-lic-group="onprem" data-plan="onprem-portal">
                 <div class="license-card__header">
                   <span class="license-card__badge">50 пользователей</span>
@@ -1178,7 +1171,6 @@
                 <div class="license-card__footer"></div>
               </li>
 
-              <!-- 100 пользователей -->
               <li class="license-card license-card--modern" data-lic-group="onprem" data-plan="onprem-portal">
                 <div class="license-card__header">
                   <span class="license-card__badge">100 пользователей</span>
@@ -1208,7 +1200,6 @@
                 <div class="license-card__footer"></div>
               </li>
 
-              <!-- 250 пользователей -->
               <li class="license-card license-card--modern" data-lic-group="onprem" data-plan="onprem-portal">
                 <div class="license-card__header">
                   <span class="license-card__badge">250 пользователей</span>
@@ -1238,7 +1229,6 @@
                 <div class="license-card__footer"></div>
               </li>
 
-              <!-- 500 пользователей -->
               <li class="license-card license-card--modern" data-lic-group="onprem" data-plan="onprem-portal">
                 <div class="license-card__header">
                   <span class="license-card__badge">500 пользователей</span>
@@ -1273,12 +1263,10 @@
         </div>
       </section>
 
-      <!-- Секция маркетплейса -->
       <section id="marketplace" class="marketplace">
         <div class="container marketplace__container">
-          <h3 class="marketplace-title">Маркетплейс + GPT</h3>
+          <h3 class="marketplace-title">Маркетплейс + BitrixGPT</h3>
           <p class="marketplace-subtitle">Цены указаны без НДС</p>
-          <!-- Переключатели маркетплейса -->
           <div class="marketplace-toolbar">
             <div class="marketplace-tabs">
               <button class="marketplace-tab active" data-marketplace-group="cloud">Облако</button>
@@ -1286,7 +1274,6 @@
             </div>
           </div>
 
-          <!-- Карточки маркетплейса (Облако) -->
           <div class="marketplace-group marketplace-group--cloud active" data-marketplace-group="cloud">
 
             <ul class="marketplace-cards marketplace-cards--modern list-reset">
@@ -1376,7 +1363,6 @@
             </ul>
           </div>
 
-          <!-- Карточки маркетплейса (Коробка) -->
           <div class="marketplace-group marketplace-group--onprem" data-marketplace-group="onprem">
 
             <ul class="marketplace-cards marketplace-cards--modern list-reset">
@@ -1458,7 +1444,6 @@
           <h2 class="technical-support__title">Техническая поддержка</h2>
 
           <div class="pricing-cards">
-            <!-- Карточка 1: Регулярная поддержка -->
             <div class="pricing-card" data-plan="regular">
               <div class="pricing-card__header">
                 <h3 class="pricing-card__title">Регулярная поддержка</h3>
@@ -1597,7 +1582,6 @@
               </div>
             </div>
 
-            <!-- Карточка 2: Экспертная поддержка -->
             <div class="pricing-card" data-plan="expert">
               <div class="pricing-card__header">
                 <h3 class="pricing-card__title">Экспертная поддержка</h3>
@@ -1738,7 +1722,6 @@
               </div>
             </div>
 
-            <!-- Карточка 3: VIP-сервис -->
             <div class="pricing-card" data-plan="vip">
               <div class="pricing-card__header">
                 <h3 class="pricing-card__title">VIP-сервис</h3>
@@ -1902,21 +1885,11 @@
             </div>
             <div class="contacts__form">
               <div class="b24-form-container">
-                <script
-                  data-b24-form="inline/50/0q7zve"
-                  data-skip-moving="true"
-                >
-                  (function (w, d, u) {
-                    var s = d.createElement("script");
-                    s.async = true;
-                    s.src = u + "?" + ((Date.now() / 180000) | 0);
-                    var h = d.getElementsByTagName("script")[0];
-                    h.parentNode.insertBefore(s, h);
-                  })(
-                    window,
-                    document,
-                    "https://cdn-ru.bitrix24.ru/b3349869/crm/form/loader_50.js",
-                  );
+                <script data-b24-form="inline/120/yb21oy" data-skip-moving="true">
+                  (function(w,d,u){
+                  var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                  var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                  })(window,document,'https://cdn-ru.bitrix24.ru/b3349869/crm/form/loader_120.js');
                 </script>
               </div>
             </div>
@@ -1951,7 +1924,6 @@
       </div>
     </footer>
 
-    <!-- Модальное окно для кейса клиента -->
     <div id="caseModal" class="case-modal">
       <button
         class="case-modal__nav case-modal__nav--outside"
@@ -2028,7 +2000,6 @@
       </div>
     </div>
 
-    <!-- Buy License Modal -->
     <div id="buyModal" class="buy-modal">
       <div class="buy-modal__content">
         <div class="buy-modal__header">
@@ -2042,6 +2013,62 @@
               var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
               var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
               })(window,document,'https://cdn-ru.bitrix24.ru/b3349869/crm/form/loader_40.js');
+              </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="consultationModal" class="feedback-modal">
+      <div class="feedback-modal__content">
+        <div class="feedback-modal__header">
+          <h3 class="feedback-modal__title">Консультация с экспертом</h3>
+          <button class="feedback-modal__close" id="closeConsultationModal">
+            ×
+          </button>
+        </div>
+        <div class="feedback-modal__body">
+          <div class="b24-form-container">
+            <script data-b24-form="inline/116/8tyfso" data-skip-moving="true">
+              (function (w, d, u) {
+                var s = d.createElement("script");
+                s.async = true;
+                s.src = u + "?" + ((Date.now() / 180000) | 0);
+                var h = d.getElementsByTagName("script")[0];
+                h.parentNode.insertBefore(s, h);
+              })(
+                window,
+                document,
+                "https://cdn-ru.bitrix24.ru/b3349869/crm/form/loader_116.js",
+              );
+              </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="calculationModal" class="feedback-modal">
+      <div class="feedback-modal__content">
+        <div class="feedback-modal__header">
+          <h3 class="feedback-modal__title">Посчитать внедрение</h3>
+          <button class="feedback-modal__close" id="closeCalculationModal">
+            ×
+          </button>
+        </div>
+        <div class="feedback-modal__body">
+          <div class="b24-form-container">
+            <script data-b24-form="inline/118/m9lnyc" data-skip-moving="true">
+              (function (w, d, u) {
+                var s = d.createElement("script");
+                s.async = true;
+                s.src = u + "?" + ((Date.now() / 180000) | 0);
+                var h = d.getElementsByTagName("script")[0];
+                h.parentNode.insertBefore(s, h);
+              })(
+                window,
+                document,
+                "https://cdn-ru.bitrix24.ru/b3349869/crm/form/loader_118.js",
+              );
               </script>
           </div>
         </div>

@@ -573,6 +573,76 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Обработчик для модального окна консультации с экспертом
+document.addEventListener("DOMContentLoaded", () => {
+  const consultationBtn = document.getElementById("consultationBtn");
+  const consultationModal = document.getElementById("consultationModal");
+  const closeConsultationModal = document.getElementById("closeConsultationModal");
+
+  if (consultationBtn && consultationModal) {
+    consultationBtn.addEventListener("click", () => {
+      consultationModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+
+    if (closeConsultationModal) {
+      closeConsultationModal.addEventListener("click", () => {
+        consultationModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      });
+    }
+
+    consultationModal.addEventListener("click", (e) => {
+      if (e.target === consultationModal) {
+        consultationModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && consultationModal.classList.contains("active")) {
+        consultationModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      }
+    });
+  }
+});
+
+// Обработчик для модального окна расчета внедрения
+document.addEventListener("DOMContentLoaded", () => {
+  const calculationBtn = document.getElementById("calculationBtn");
+  const calculationModal = document.getElementById("calculationModal");
+  const closeCalculationModal = document.getElementById("closeCalculationModal");
+
+  if (calculationBtn && calculationModal) {
+    calculationBtn.addEventListener("click", () => {
+      calculationModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+
+    if (closeCalculationModal) {
+      closeCalculationModal.addEventListener("click", () => {
+        calculationModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      });
+    }
+
+    calculationModal.addEventListener("click", (e) => {
+      if (e.target === calculationModal) {
+        calculationModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && calculationModal.classList.contains("active")) {
+        calculationModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      }
+    });
+  }
+});
+
 // Обработчик для селекта количества пользователей в маркетплейсе
 document.addEventListener("DOMContentLoaded", () => {
   const marketplaceUserCountSelect = document.querySelector('.marketplace-user-count-select[data-plan="marketplace-portal"]');
