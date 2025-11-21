@@ -721,6 +721,33 @@ carousel.addEventListener("touchstart", handleMouseDown);
 carousel.addEventListener("touchmove", handleMouseMove);
 carousel.addEventListener("touchend", handleMouseUp);
 
+// Обработчики для стрелок навигации (только для мобильных)
+const carouselPrevBtn = document.getElementById("carouselPrev");
+const carouselNextBtn = document.getElementById("carouselNext");
+
+if (carouselPrevBtn && carouselNextBtn) {
+  const navigateCarousel = (direction) => {
+    const totalItems = $items.length;
+    if (direction === "prev") {
+      active = active > 0 ? active - 1 : totalItems - 1;
+    } else {
+      active = active < totalItems - 1 ? active + 1 : 0;
+    }
+    progress = (active / (totalItems - 1)) * totalItems * 10 + 10;
+    animate();
+  };
+
+  carouselPrevBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navigateCarousel("prev");
+  });
+
+  carouselNextBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navigateCarousel("next");
+  });
+}
+
 // Бургер меню
 document.addEventListener("DOMContentLoaded", () => {
   const burgerMenu = document.querySelector(".burger-menu");

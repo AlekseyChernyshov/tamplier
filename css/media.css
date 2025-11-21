@@ -757,6 +757,51 @@
     font-size: 12px;
   }
 
+  /* Стрелки навигации для карусели отзывов */
+  .carousel-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: var(--main-color);
+    border: 2px solid var(--white-color);
+    border-radius: 50%;
+    color: var(--white-color);
+    cursor: pointer;
+    z-index: 1000;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .carousel-nav-btn:hover {
+    background: var(--main-blue);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .carousel-nav-btn:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .carousel-nav-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2.5;
+  }
+
+  .carousel-nav-btn--prev {
+    left: 10px;
+  }
+
+  .carousel-nav-btn--next {
+    right: 10px;
+  }
+
   /* Отключаем все анимации на очень маленьких экранах */
   .carousel__track {
     transition: none !important;
