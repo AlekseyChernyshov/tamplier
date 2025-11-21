@@ -594,7 +594,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Находим родительскую карточку
         const marketplaceCard = marketplaceUserCountSelect.closest('.marketplace-card');
         const priceOld = marketplaceCard.querySelector('.marketplace-card__price-old');
-        const priceCurrent = marketplaceCard.querySelector('.marketplace-card__price-current');
+        const priceCurrent = marketplaceCard.querySelector('.marketplace-card__subheader-price');
         
         if (priceOld) {
           priceOld.textContent = `${prices.old.toLocaleString('ru-RU')} ₽`;
