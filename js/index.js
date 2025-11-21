@@ -429,12 +429,26 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = "hidden";
         waitForB24Form().then((form) => {
           if (form) {
-            const labels = ['Имя', 'Телефон', 'Email', 'Цена',  'Лицензия'];
+            const labels = ['Имя', 'Телефон', 'Лицензия',  'Пользователей', 'Цена'];
             const allInputs = form.querySelectorAll('input');
-            const price = allInputs[3];
-            const licenseName = allInputs[4];
-            price.disabled = true;
-            licenseName.disabled = true;
+            const price = allInputs[4];
+            const licenseName = allInputs[2];
+            const numOfUsers = allInputs[3];
+
+            if (price) {
+              price.disabled = true;
+              price.style.setProperty('color', 'gray', 'important');
+            }
+            
+            if (licenseName) {
+              licenseName.disabled = true;
+              licenseName.style.setProperty('color', 'gray', 'important');
+            }
+
+            if(numOfUsers) {
+              numOfUsers.disabled = true;
+              numOfUsers.style.setProperty('color', 'gray', 'important');
+            }
 
             const b24FormFields = form.querySelectorAll('.b24-form-field');
             b24FormFields.forEach((div, index) => {
@@ -453,7 +467,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const licenseInfo = licenseCard ? getLicenseInfo(licenseCard) : getLicenseInfo(plan);
             if (price && licenseName && licenseInfo) {
               price.value = licenseInfo.price + ' ' + licenseInfo.periodText;
-              licenseName.value = licenseInfo.licenseName + ' ' + licenseInfo.userCount + ' пользователей';
+              triggerInputEvents(price);
+              
+              licenseName.value = licenseInfo.licenseName;
+              triggerInputEvents(licenseName);
+              
+              numOfUsers.value = licenseInfo.userCount + ' пользователей';
+              triggerInputEvents(numOfUsers);
             }
           }
         });
@@ -544,8 +564,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const allInputs = form.querySelectorAll('input');
             const price = allInputs[3];
             const licenseName = allInputs[4];
-            price.disabled = true;
-            licenseName.disabled = true;
+            
+            if (price) {
+              price.disabled = true;
+              price.style.setProperty('color', 'gray', 'important');
+            }
+            
+            if (licenseName) {
+              licenseName.disabled = true;
+              licenseName.style.setProperty('color', 'gray', 'important');
+            }
 
             const b24FormFields = form.querySelectorAll('.b24-form-field');
             b24FormFields.forEach((div, index) => {
@@ -564,7 +592,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const licenseInfo = marketplaceCard ? getLicenseInfo(marketplaceCard) : getLicenseInfo(plan);
             if (price && licenseName && licenseInfo) {
               price.value = licenseInfo.price + ' ' + licenseInfo.periodText;
+              triggerInputEvents(price);
+              
               licenseName.value = licenseInfo.licenseName + ' ' + licenseInfo.userCount + ' пользователей';
+              triggerInputEvents(licenseName);
             }
           }
         });
@@ -637,6 +668,89 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && calculationModal.classList.contains("active")) {
         calculationModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      }
+    });
+  }
+});
+
+// Обработчик для кнопок "Купить" в карточках технической поддержки
+document.addEventListener("DOMContentLoaded", () => {
+  const supportBuyButtons = document.querySelectorAll('.pricing-card__buy-btn[data-plan^="support-"]');
+  const supportModal = document.getElementById("supportModal");
+  const closeSupportModal = document.getElementById("closeSupportModal");
+
+  if (supportBuyButtons.length > 0 && supportModal) {
+    supportBuyButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const pricingCard = button.closest(".pricing-card");
+        supportModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+        
+        waitForSupportForm(supportModal).then((form) => {
+          if (form) {
+            const labels = ['Имя', 'Телефон', 'Цена', 'Название тарифа'];
+            const allInputs = form.querySelectorAll('input');
+            const priceInput = allInputs[2];
+            const titleInput = allInputs[3];
+            
+            if (priceInput) {
+              priceInput.disabled = true;
+              priceInput.style.setProperty('color', 'gray', 'important');
+            }
+            
+            if (titleInput) {
+              titleInput.disabled = true;
+              titleInput.style.setProperty('color', 'gray', 'important');
+            }
+            
+            const b24FormFields = form.querySelectorAll('.b24-form-field');
+            b24FormFields.forEach((div, index) => {
+              const existingLabel = div.querySelector('.buy-modal-label');
+              if (!existingLabel && index < labels.length) {
+                let label = document.createElement('label');
+                label.innerHTML = labels[index];
+                label.classList.add('buy-modal-label');
+                div.prepend(label);
+              }
+            });
+            
+            if (priceInput && titleInput && pricingCard) {
+              const priceElement = pricingCard.querySelector('.pricing-card__price');
+              const titleElement = pricingCard.querySelector('.pricing-card__title');
+              
+              if (priceElement) {
+                priceInput.value = priceElement.textContent.trim();
+                triggerInputEvents(priceInput);
+              }
+              
+              if (titleElement) {
+                titleInput.value = titleElement.textContent.trim();
+                triggerInputEvents(titleInput);
+              }
+            }
+          }
+        });
+      });
+    });
+
+    if (closeSupportModal) {
+      closeSupportModal.addEventListener("click", () => {
+        supportModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      });
+    }
+
+    supportModal.addEventListener("click", (e) => {
+      if (e.target === supportModal) {
+        supportModal.classList.remove("active");
+        document.body.style.overflow = "visible";
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && supportModal.classList.contains("active")) {
+        supportModal.classList.remove("active");
         document.body.style.overflow = "visible";
       }
     });
@@ -1011,6 +1125,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function triggerInputEvents(input) {
+  if (!input) return;
+  
+  const inputEvent = new Event('input', {
+    bubbles: true,
+    cancelable: true
+  });
+  
+  const changeEvent = new Event('change', {
+    bubbles: true,
+    cancelable: true
+  });
+  
+  input.dispatchEvent(inputEvent);
+  input.dispatchEvent(changeEvent);
+}
+
 function waitForB24Form() {
   return new Promise((resolve) => {
     const checkForm = () => {
@@ -1019,6 +1150,21 @@ function waitForB24Form() {
         resolve(form);
         return;
       }
+      setTimeout(checkForm, 50);
+    };
+    checkForm();
+  });
+}
+
+function waitForSupportForm(container) {
+  return new Promise((resolve) => {
+    const checkForm = () => {
+      const form = container.querySelector('.b24-form-container .b24-form');
+      if (form) {
+        resolve(form);
+        return;
+      }
+      setTimeout(checkForm, 50);
     };
     checkForm();
   });

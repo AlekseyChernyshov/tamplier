@@ -2791,6 +2791,28 @@ img {
   transform: scale(0.95);
 }
 
+#supportModal .b24-form-padding-bottom {
+  padding-bottom: 0 !important;
+}
+
+#supportModal .b24-form-header-padding {
+  padding: 0 !important;
+}
+
+#supportModal .b24-form-control-string .b24-form-control {
+  background-color: var(--white-color) !important;
+  border: 2px solid var(--main-blue) !important;
+  padding-top: 0 !important;
+}
+
+#supportModal .b24-form-control-label {
+  display: none;
+}
+
+#supportModal .b24-form-container {
+  display: block !important;
+}
+
 .feedback-modal__body {
   height: calc(100% - 90px);
   overflow: auto;
