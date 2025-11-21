@@ -101,10 +101,6 @@ function getLicenseInfo(planOrCard) {
   } else {
     const licGroup = licenseCard.getAttribute("data-lic-group");
     if (licGroup === "cloud") {
-      const activeBillTab = document.querySelector(".licenses__bill.active");
-      // const billingPeriod = activeBillTab
-      //   ? activeBillTab.getAttribute("data-bill")
-      //   : "month";
       periodText = "месяц";
     } else {
       // Для коробочных лицензий период всегда 12 месяцев
@@ -416,36 +412,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
-  // Обработчик для селекта количества пользователей в лицензии Корпоративный портал
-  // Удален, так как теперь используются отдельные карточки для каждого количества пользователей
-  // const onpremPortalSelect = document.querySelector(
-  //   '.user-count-select[data-plan="onprem-portal"]'
-  // );
-  // if (onpremPortalSelect) {
-  //   // Актуальные цены для лицензии Корпоративный портал (только 12 месяцев)
-  //   const onpremPortalPrices = {
-  //     50: 159000,
-  //     100: 229000,
-  //     250: 249000,
-  //     500: 599000,
-  //   };
-
-  //   onpremPortalSelect.addEventListener("change", (e) => {
-  //     const selectedValue = e.target.value;
-  //     const priceCurrent = document.querySelector(
-  //       '.license-card[data-plan="onprem-portal"] .license-card__subheader-price'
-  //     );
-
-  //     // Обновляем цену согласно актуальному прайсу
-  //     const newPrice = onpremPortalPrices[selectedValue] || 159000;
-
-  //     if (priceCurrent) {
-  //       priceCurrent.textContent = `${newPrice.toLocaleString("ru-RU")}₽`;
-  //     }
-  //   });
-  // }
-
 
   // Обработчик для кнопок "Купить" в лицензиях
   const buyButtons = document.querySelectorAll(".license-card__buy-btn");

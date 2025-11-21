@@ -304,7 +304,6 @@ img {
 .header__container {
   display: flex;
   align-items: center;
-  /* height: 100px; */
   padding: 0;
 }
 
@@ -467,11 +466,6 @@ img {
   display: flex;
   flex-direction: column;
   width: 900px;
-  /* background: radial-gradient(
-    50% 50% at 50% 50%,
-    #414562 0%,
-    rgba(38, 40, 57, 0) 100%
-  ); */
   background: radial-gradient(
     50% 50% at 50% 50%,
     #414557 0%,
@@ -1177,7 +1171,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-bottom: 25px; */
   box-shadow: 0 10px 30px rgba(0, 92, 115, 0.3);
   position: relative;
 }
@@ -1514,7 +1507,7 @@ img {
 .price-current {
   font-weight: 800;
   font-size: 26px;
-  color: #ffc72c;
+  color: #cde800;
 }
 .price-suffix {
   color: white;
@@ -1564,11 +1557,6 @@ img {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
-
-/* .license-card--featured {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-} */
 
 .license-card--featured .license-card__badge {
   background: #ffc72c;
@@ -1641,7 +1629,7 @@ img {
   margin: 0;
   font-size: 24px;
   font-weight: 800;
-  color: #ffc72c;
+  color: #cde800;
   line-height: 1.2;
   text-align: center;
 }
@@ -1658,7 +1646,7 @@ img {
 .license-card__subheader-price {
   font-size: 22px;
   font-weight: 800;
-  color: #ffc72c;
+  color: #cde800;
   margin: 8px 0 0;
   line-height: 1.2;
   text-align: center;
@@ -1940,7 +1928,6 @@ img {
   font-size: 42px;
   font-weight: 700;
   color: var(--main-color);
-  /* margin: 60px auto 40px; */
   position: relative;
 }
 
@@ -2064,7 +2051,7 @@ img {
   margin: 0;
   font-size: 24px;
   font-weight: 800;
-  color: #ffc72c;
+  color: #cde800;
   line-height: 1.2;
   text-align: center;
 }
@@ -2081,7 +2068,7 @@ img {
 .marketplace-card__subheader-price {
   font-size: 26px;
   font-weight: 800;
-  color: #ffc72c;
+  color: #cde800;
   margin: 8px 0 0;
   line-height: 1.2;
   text-align: center;
@@ -2273,7 +2260,7 @@ img {
 .marketplace-card--modern .marketplace-card__price-current {
   font-size: 28px;
   font-weight: 800;
-  color: #ffc72c
+  color: #cde800;
 }
 
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__price-current,
@@ -2351,7 +2338,7 @@ img {
 .marketplace-group--onprem .marketplace-card--modern .marketplace-card__buy-btn:hover {
   background: var(--main-color);
   color: #ffffff;
-  border-color: var(--main-color);
+  border-color: var(--white-color);
 }
 
 .marketplace-card__user-select--modern {
@@ -2409,7 +2396,7 @@ img {
 /* Стили для карточек тарифов */
 .pricing-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 60px auto 0;
@@ -2425,6 +2412,7 @@ img {
   transition: all 0.3s ease;
   position: relative;
   min-height: 300px; /* Минимальная высота вместо фиксированной */
+  min-width: 350px;
   display: flex;
   flex-direction: column;
 }
@@ -2437,16 +2425,16 @@ img {
 
 .pricing-card__header {
   padding: 30px 25px 25px;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  background: var(--main-color);
   text-align: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #000;
   flex-shrink: 0;
 }
 
 .pricing-card__title {
   font-size: 22px;
   font-weight: 700;
-  color: #e1a661;
+  color: white;
   margin-bottom: 15px;
   line-height: 1.3;
 }
@@ -2454,21 +2442,22 @@ img {
 .pricing-card__hours {
   font-size: 16px;
   font-weight: 600;
-  color: var(--main-color);
+  color: white;
   margin-bottom: 10px;
+  opacity: 0.6;
 }
 
 .pricing-card__price {
   margin-bottom: 5px;
   font-size: 20px;
-  font-weight: 700;
-  color: #e1a661;
+  font-weight: 800;
+  color: #cde800;
 }
 
 .pricing-card__period {
   font-size: 12px;
   font-weight: 700;
-  color: var(--black-color);
+  color: white;
   opacity: 0.6;
 }
 
@@ -2533,7 +2522,6 @@ img {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  /* margin-top: auto; */
   transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
 }
 
@@ -2551,7 +2539,7 @@ img {
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  color: var(--white-color);
+  color: #cde800;
   background: linear-gradient(135deg, var(--main-color), var(--main-blue));
   transition: all 0.3s ease;
 }
