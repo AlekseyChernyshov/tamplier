@@ -476,6 +476,7 @@ img {
   font-weight: bold;
   margin-bottom: 30px;
   color: var(--white-color);
+  z-index: 100;
 }
 
 .hero__text {
@@ -524,7 +525,7 @@ img {
   bottom: 0;
   right: 0;
   max-width: 400px;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 
