@@ -3181,6 +3181,40 @@ img {
   margin: 0;
 }
 
+#footer .politic {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 #footer .footer__text a {
   color: white;
+}
+
+.custom {
+  background-color: transparent;
+}
+
+.custom .b24-form-wrapper {
+  background-color: transparent !important;
+}
+
+.custom .b24-form-control {
+  background-color: white !important;
+}
+
+.custom .b24-form-control-desc {
+  color: white;
+  opacity: 1 !important;
+}
+
+.custom .b24-form-sign-abuse {
+  background-color: white;
+}
+
+.custom .b24-form-header-padding {
+  padding: 0 !important;
+}
+
+.b24-form-btn {
+  background-color: var(--main-color) !important;
 }
