@@ -483,6 +483,7 @@ img {
   margin-bottom: 4px;
   color: white;
   font-size: 18px;
+  z-index: 300;
 }
 
 .hero__subtext {
