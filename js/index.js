@@ -141,22 +141,6 @@ function getLicenseInfo(planOrCard) {
   }
 }
 
-// Наблюдаем за всеми элементами услуг
-document.addEventListener("DOMContentLoaded", () => {
-  const serviceCards = document.querySelectorAll(".service-card");
-  serviceCards.forEach((card) => {
-    // На мобильных устройствах показываем карточки сразу
-    if (isMobile) {
-      card.style.transform = "none";
-      card.style.opacity = "1";
-    } else {
-      card.classList.remove("animate-item");
-      observer.observe(card);
-    }
-  });
-});
-
-// Простой обработчик изменения размера окна
 let resizeTimeout;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimeout);
@@ -168,8 +152,22 @@ window.addEventListener("resize", () => {
   }, 250);
 });
 
-// Функциональность разворачивания карточек тарифов
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Наблюдаем за всеми элементами услуг
+  const serviceCards = document.querySelectorAll(".service-card");
+  serviceCards.forEach((card) => {
+    // На мобильных устройствах показываем карточки сразу
+    if (isMobile) {
+      card.style.transform = "none";
+      card.style.opacity = "1";
+    } else {
+      card.classList.remove("animate-item");
+      observer.observe(card);
+    }
+  });
+
+  // Функциональность разворачивания карточек тарифов
   const toggleButtons = document.querySelectorAll(".pricing-card__toggle");
 
   toggleButtons.forEach((button) => {
@@ -211,8 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  // (Убрано) Тоггл внутренних фич лицензий — оставляем только переключение групп
 
   // Переключение групп лицензий (Облако/Коробка)
   const licTabs = document.querySelectorAll(".licenses__tab");
@@ -513,7 +509,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (feedbackBtnCarousel && feedbackModal) {
     // Открытие модального окна
     feedbackBtnCarousel.addEventListener("click", () => {
-      console.log("Открываем модальное окно отзыва");
       feedbackModal.classList.add("active");
       document.body.style.overflow = "hidden"; // Блокируем прокрутку страницы
     });
@@ -542,12 +537,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
 
-// Обработчик для кнопок "Купить" в маркетплейсе
-document.addEventListener("DOMContentLoaded", () => {
+  // Обработчик для кнопок "Купить" в маркетплейсе
   const marketplaceBuyButtons = document.querySelectorAll(".marketplace-card__buy-btn");
-  const buyModal = document.getElementById("buyModal");
   
   if (marketplaceBuyButtons.length && buyModal) {
     marketplaceBuyButtons.forEach((button) => {
@@ -602,10 +594,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-});
 
-// Обработчик для модального окна консультации с экспертом
-document.addEventListener("DOMContentLoaded", () => {
+  // Обработчик для модального окна консультации с экспертом
   const consultationBtn = document.getElementById("consultationBtn");
   const consultationModal = document.getElementById("consultationModal");
   const closeConsultationModal = document.getElementById("closeConsultationModal");
@@ -637,10 +627,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
 
-// Обработчик для модального окна расчета внедрения
-document.addEventListener("DOMContentLoaded", () => {
+  // Обработчик для модального окна расчета внедрения
   const calculationBtn = document.getElementById("calculationBtn");
   const calculationModal = document.getElementById("calculationModal");
   const closeCalculationModal = document.getElementById("closeCalculationModal");
@@ -649,6 +637,14 @@ document.addEventListener("DOMContentLoaded", () => {
     calculationBtn.addEventListener("click", () => {
       calculationModal.classList.add("active");
       document.body.style.overflow = "hidden";
+      
+      waitForCalculationForm(calculationModal).then((form) => {
+        if (form) {
+          const labels = form.querySelectorAll('.b24-form-control-label');
+          labels[2].style.color = 'white';
+          labels[2].style.opacity = '1';
+        }
+      });
     });
 
     if (closeCalculationModal) {
@@ -672,10 +668,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
 
-// Обработчик для кнопок "Купить" в карточках технической поддержки
-document.addEventListener("DOMContentLoaded", () => {
+  // Обработчик для кнопок "Купить" в карточках технической поддержки
   const supportBuyButtons = document.querySelectorAll('.pricing-card__buy-btn[data-plan^="support-"]');
   const supportModal = document.getElementById("supportModal");
   const closeSupportModal = document.getElementById("closeSupportModal");
@@ -755,10 +749,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
 
-// Обработчик для селекта количества пользователей в маркетплейсе
-document.addEventListener("DOMContentLoaded", () => {
+  // Обработчик для селекта количества пользователей в маркетплейсе
   const marketplaceUserCountSelect = document.querySelector('.marketplace-user-count-select[data-plan="marketplace-portal"]');
   
   if (marketplaceUserCountSelect) {
@@ -794,12 +786,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Инициализируем цену при загрузке
     updateMarketplacePortalPrice();
   }
-});
 
-// Упрощенный прыгающий кружочек - только базовая анимация по границам
-
-// Интерактивная диаграмма отраслей
-document.addEventListener("DOMContentLoaded", () => {
+  // Интерактивная диаграмма отраслей
   const chartColumns = document.querySelectorAll(".chart-column");
 
   // Добавляем hover эффекты для столбцов
@@ -852,92 +840,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sectionObserver.observe(industriesSection);
   }
-});
 
-let startX = 0;
-let active = 0;
-let isDown = false;
-const speedDrag = -0.1;
-const getZindex = (array, index) =>
-  array.map((_, i) =>
-    index === i ? array.length : array.length - Math.abs(index - i)
-  );
-const carousel = document.querySelector(".carousel");
-const $items = document.querySelectorAll(".carousel-item");
-let progress = (10 * $items.length) / 2;
-const displayItems = (item, index, active) => {
-  const zIndex = getZindex([...$items], active)[index];
-  item.style.setProperty("--zIndex", zIndex);
-  item.style.setProperty("--active", (index - active) / $items.length);
-  item.style.setProperty("--items", $items.length);
-};
-const animate = () => {
-  progress = Math.max(0, Math.min(progress, $items.length * 10));
-  active = Math.floor((progress / ($items.length * 10)) * ($items.length - 1));
-  $items.forEach((item, index) => displayItems(item, index, active));
-};
-animate();
-$items.forEach((item, i) => {
-  item.addEventListener("click", () => {
-    progress = (i / $items.length) * $items.length * 10 + 10;
-    animate();
-  });
-});
-const handleMouseMove = (e) => {
-  if (!isDown) return;
-  const x = e.clientX || (e.touches && e.touches[0].clientX) || 0;
-  const mouseProgress = (x - startX) * speedDrag;
-  progress = progress + mouseProgress;
-  startX = x;
-  animate();
-};
-const handleMouseDown = (e) => {
-  isDown = true;
-  startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
-};
-const handleMouseUp = () => {
-  isDown = false;
-};
-carousel.addEventListener("mousedown", handleMouseDown);
-carousel.addEventListener("mousemove", handleMouseMove);
-carousel.addEventListener("mouseup", handleMouseUp);
-carousel.addEventListener("touchstart", handleMouseDown);
-carousel.addEventListener("touchmove", handleMouseMove);
-carousel.addEventListener("touchend", handleMouseUp);
-
-// Обработчики для стрелок навигации (только для мобильных)
-const carouselPrevBtn = document.getElementById("carouselPrev");
-const carouselNextBtn = document.getElementById("carouselNext");
-
-if (carouselPrevBtn && carouselNextBtn) {
-  const navigateCarousel = (direction) => {
-    const totalItems = $items.length;
-    if (direction === "prev") {
-      active = active > 0 ? active - 1 : totalItems - 1;
-    } else {
-      active = active < totalItems - 1 ? active + 1 : 0;
-    }
-    progress = (active / (totalItems - 1)) * totalItems * 10 + 10;
-    animate();
-  };
-
-  carouselPrevBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    navigateCarousel("prev");
-  });
-
-  carouselNextBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    navigateCarousel("next");
-  });
-}
-
-// Бургер меню
-document.addEventListener("DOMContentLoaded", () => {
+  // Бургер меню
   const burgerMenu = document.querySelector(".burger-menu");
-  const button = burgerMenu.querySelector(".burger-menu_button");
-  const links = burgerMenu.querySelectorAll(".burger-menu_link");
-  const overlay = burgerMenu.querySelector(".burger-menu_overlay");
+  const button = burgerMenu?.querySelector(".burger-menu_button");
+  const links = burgerMenu?.querySelectorAll(".burger-menu_link");
+  const overlay = burgerMenu?.querySelector(".burger-menu_overlay");
 
   if (burgerMenu && button) {
     button.addEventListener("click", (e) => {
@@ -945,11 +853,11 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleMenu();
     });
 
-    links.forEach((link) => {
+    links?.forEach((link) => {
       link.addEventListener("click", () => toggleMenu());
     });
 
-    overlay.addEventListener("click", () => toggleMenu());
+    overlay?.addEventListener("click", () => toggleMenu());
 
     function toggleMenu() {
       burgerMenu.classList.toggle("burger-menu_active");
@@ -961,10 +869,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-});
 
-// Функциональность модального окна для кейса клиента
-document.addEventListener("DOMContentLoaded", () => {
+  // Функциональность модального окна для кейса клиента
   const modal = document.getElementById("caseModal");
   const closeBtn = document.getElementById("closeModal");
   const caseBtns = document.querySelectorAll(".case-btn");
@@ -1125,6 +1031,87 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Упрощенный прыгающий кружочек - только базовая анимация по границам
+
+let startX = 0;
+let active = 0;
+let isDown = false;
+const speedDrag = -0.1;
+const getZindex = (array, index) =>
+  array.map((_, i) =>
+    index === i ? array.length : array.length - Math.abs(index - i)
+  );
+const carousel = document.querySelector(".carousel");
+const $items = document.querySelectorAll(".carousel-item");
+let progress = (10 * $items.length) / 2;
+const displayItems = (item, index, active) => {
+  const zIndex = getZindex([...$items], active)[index];
+  item.style.setProperty("--zIndex", zIndex);
+  item.style.setProperty("--active", (index - active) / $items.length);
+  item.style.setProperty("--items", $items.length);
+};
+const animate = () => {
+  progress = Math.max(0, Math.min(progress, $items.length * 10));
+  active = Math.floor((progress / ($items.length * 10)) * ($items.length - 1));
+  $items.forEach((item, index) => displayItems(item, index, active));
+};
+animate();
+$items.forEach((item, i) => {
+  item.addEventListener("click", () => {
+    progress = (i / $items.length) * $items.length * 10 + 10;
+    animate();
+  });
+});
+const handleMouseMove = (e) => {
+  if (!isDown) return;
+  const x = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+  const mouseProgress = (x - startX) * speedDrag;
+  progress = progress + mouseProgress;
+  startX = x;
+  animate();
+};
+const handleMouseDown = (e) => {
+  isDown = true;
+  startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+};
+const handleMouseUp = () => {
+  isDown = false;
+};
+carousel.addEventListener("mousedown", handleMouseDown);
+carousel.addEventListener("mousemove", handleMouseMove);
+carousel.addEventListener("mouseup", handleMouseUp);
+carousel.addEventListener("touchstart", handleMouseDown);
+carousel.addEventListener("touchmove", handleMouseMove);
+carousel.addEventListener("touchend", handleMouseUp);
+
+// Обработчики для стрелок навигации (только для мобильных)
+const carouselPrevBtn = document.getElementById("carouselPrev");
+const carouselNextBtn = document.getElementById("carouselNext");
+
+if (carouselPrevBtn && carouselNextBtn) {
+  const navigateCarousel = (direction) => {
+    const totalItems = $items.length;
+    if (direction === "prev") {
+      active = active > 0 ? active - 1 : totalItems - 1;
+    } else {
+      active = active < totalItems - 1 ? active + 1 : 0;
+    }
+    progress = (active / (totalItems - 1)) * totalItems * 10 + 10;
+    animate();
+  };
+
+  carouselPrevBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navigateCarousel("prev");
+  });
+
+  carouselNextBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navigateCarousel("next");
+  });
+}
+
+
 function triggerInputEvents(input) {
   if (!input) return;
   
@@ -1157,6 +1144,20 @@ function waitForB24Form() {
 }
 
 function waitForSupportForm(container) {
+  return new Promise((resolve) => {
+    const checkForm = () => {
+      const form = container.querySelector('.b24-form-container .b24-form');
+      if (form) {
+        resolve(form);
+        return;
+      }
+      setTimeout(checkForm, 50);
+    };
+    checkForm();
+  });
+}
+
+function waitForCalculationForm(container) {
   return new Promise((resolve) => {
     const checkForm = () => {
       const form = container.querySelector('.b24-form-container .b24-form');
