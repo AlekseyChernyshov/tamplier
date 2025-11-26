@@ -116,7 +116,7 @@ img {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 30;
+  z-index: 9999;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -189,7 +189,7 @@ img {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 20;
+  z-index: 9999;
   display: flex;
   flex-flow: column;
   height: 100vh;
