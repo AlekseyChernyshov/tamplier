@@ -90,6 +90,19 @@
     <main class="main">
       <section class="hero">
         <div class="container hero__container">
+          <a href="#support">
+          <div class="promotion">
+            <span class="promotion__discount">-25%</span>
+            <div>
+            <p class="promotion__text">Черная <span style="color: red;">пятница</span></p>
+            <p class="promotion__subtext">Скидки на тарифы технической поддержки</p>
+            </div>
+            <div class="promotion__timer" id="promotionTimer">
+              <span class="promotion__timer-label">До конца акции:</span>
+              <span class="promotion__timer-value" id="timerValue">00:00:00</span>
+            </div>
+          </div>
+          </a>
           <div class="hero__content">
             <h1 class="hero__title">
               Цифровая трансформация бизнеса на платформе Битрикс24
@@ -1464,10 +1477,15 @@
           <div class="pricing-cards">
             <div class="pricing-card" data-plan="regular">
               <div class="pricing-card__header">
+                <span class="card__promotion">-25%</span>
                 <h3 class="pricing-card__title">Регулярная поддержка</h3>
                 <div class="pricing-card__hours">20 часов в подписке</div>
-                <div class="pricing-card__price">78 000₽/месяц</div>
+                <s class="old__price">78 000₽/месяц</s>
+                <div class="pricing-card__price">58 000₽/месяц</div>
                 <div class="pricing-card__period">Срок действия - 30 дней</div>
+                <button class="pricing-card__header-buy-btn" data-plan="support-regular">
+                  Купить
+                </button>
               </div>
 
               <div class="pricing-card__content">
@@ -1602,10 +1620,15 @@
 
             <div class="pricing-card" data-plan="expert">
               <div class="pricing-card__header">
+                <span class="card__promotion">-25%</span>
                 <h3 class="pricing-card__title">Экспертная поддержка</h3>
                 <div class="pricing-card__hours">40 часов в подписке</div>
-                <div class="pricing-card__price">156 000₽/месяц</div>
+                <s class="old__price">156 000₽/месяц</s>
+                <div class="pricing-card__price">116 000₽/месяц</div>
                 <div class="pricing-card__period">Срок действия - 30 дней</div>
+                <button class="pricing-card__header-buy-btn" data-plan="support-expert">
+                  Купить
+                </button>
               </div>
 
               <div class="pricing-card__content">
@@ -1746,6 +1769,9 @@
                 <div class="pricing-card__hours">100+ часов в подписке</div>
                 <div class="pricing-card__price">390 000₽/месяц</div>
                 <div class="pricing-card__period">Срок действия - 90 дней</div>
+                <button class="pricing-card__header-buy-btn" data-plan="support-vip">
+                  Купить
+                </button>
               </div>
 
               <div class="pricing-card__content">

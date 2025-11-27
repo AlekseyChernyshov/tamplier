@@ -2,11 +2,61 @@
   .hero__img {
     max-width: 300px;
   }
+
+  .promotion {
+    width: 118vw;
+    left: -9%;
+  }
+
+  .promotion__discount {
+    margin-left: 0px;
+    font-size: 60px;
+  }
+
+  .promotion__text {
+    font-size: 30px;
+  }
+
+  .promotion__subtext {
+    font-size: 21px;
+  }
 }
 
 @media (max-width: 910px) {
   .hero__img {
     display: none;;
+  }
+
+  .promotion {
+    width: 100vw;
+    left: 0;
+    bottom: 10%;
+    transform: rotate(-4deg);
+  }
+
+  .promotion__discount {
+    margin-right: 12px;
+    font-size: 32px;
+  }
+
+  .promotion__text {
+    font-size: 16px;
+  }
+
+  .promotion__subtext {
+    font-size: 13px;
+  }
+
+  .promotion__timer {
+    margin-left: 18px;
+  }
+
+  .promotion__timer-label {
+    font-size: 13px;
+  }
+
+  .promotion__timer-value {
+    font-size: 20px;
   }
 }
 
@@ -38,6 +88,37 @@
 
   .hero__img {
     max-width: 280px;
+  }
+
+  /* .promotion {
+    width: 115vw;
+    left: -7.5%;
+    bottom: 17%;
+  } */
+
+  .promotion__discount {
+    margin-right: 18px;
+    font-size: 56px;
+  }
+
+  .promotion__text {
+    font-size: 28px;
+  }
+
+  .promotion__subtext {
+    font-size: 20px;
+  }
+
+  .promotion__timer {
+    margin-left: 35px;
+  }
+
+  .promotion__timer-label {
+    font-size: 20px;
+  }
+
+  .promotion__timer-value {
+    font-size: 36px;
   }
 
   .carousel {
@@ -130,6 +211,7 @@
 
   .pricing-card__header {
     padding: 25px 20px 20px;
+    min-height: 260px;
   }
 
   .pricing-card__title {
@@ -144,6 +226,12 @@
     font-size: 18px;
   }
 
+  .pricing-card__header-buy-btn {
+    padding: 12px 12px;
+    font-size: 18px;
+    margin-top: auto;
+  }
+
   .pricing-card__content {
     padding: 20px;
   }
@@ -151,6 +239,37 @@
   .pricing-card__toggle {
     padding: 10px 16px;
     font-size: 13px;
+  }
+
+  .promotion {
+    width: 110vw;
+    left: -5%;
+    bottom: 17%;
+  }
+
+  .promotion__discount {
+    margin-right: 15px;
+    font-size: 50px;
+  }
+
+  .promotion__text {
+    font-size: 24px;
+  }
+
+  .promotion__subtext {
+    font-size: 18px;
+  }
+
+  .promotion__timer {
+    margin-left: 30px;
+  }
+
+  .promotion__timer-label {
+    font-size: 18px;
+  }
+
+  .promotion__timer-value {
+    font-size: 32px;
   }
 
   .feature-item {
@@ -401,6 +520,7 @@
 
   .pricing-card__header {
     padding: 20px 15px 15px;
+    min-height: 240px;
   }
 
   .pricing-card__title {
@@ -414,7 +534,13 @@
   }
 
   .pricing-card__price {
+    font-size: 28px;
+  }
+
+  .pricing-card__header-buy-btn {
+    padding: 12px 10px;
     font-size: 16px;
+    margin-top: auto;
   }
 
   .pricing-card__content {
@@ -425,6 +551,39 @@
     padding: 10px 15px;
     font-size: 12px;
     margin-bottom: 15px;
+  }
+
+  .promotion {
+    width: 110vw;
+    left: -20px;
+    bottom: 25%;
+    transform: rotate(-5deg);
+    padding: 0 0;
+  }
+
+  .promotion__discount {
+    margin-right: 10px;
+    font-size: 36px;
+  }
+
+  .promotion__text {
+    font-size: 18px;
+  }
+
+  .promotion__subtext {
+    font-size: 14px;
+  }
+
+  .promotion__timer {
+    margin-left: 20px;
+  }
+
+  .promotion__timer-label {
+    font-size: 14px;
+  }
+
+  .promotion__timer-value {
+    font-size: 24px;
   }
 
   .pricing-card__features {
@@ -863,6 +1022,7 @@
 
   .pricing-card__header {
     padding: 15px 12px 12px;
+    min-height: 220px;
   }
 
   .pricing-card__title {
@@ -879,6 +1039,13 @@
     font-size: 24px;
   }
 
+  .pricing-card__header-buy-btn {
+    padding: 10px 8px;
+    font-size: 14px;
+    margin-top: auto;
+    letter-spacing: 0.5px;
+  }
+
   .pricing-card__content {
     padding: 12px;
   }
@@ -887,6 +1054,39 @@
     padding: 12px 12px;
     font-size: 14px;
     margin-bottom: 12px;
+  }
+
+  .promotion {
+    width: 100vw;
+    left: 0;
+    bottom: 8%;
+    transform: rotate(-3deg);
+    padding: 6px 0;
+  }
+
+  .promotion__discount {
+    margin-right: 8px;
+    font-size: 28px;
+  }
+
+  .promotion__text {
+    font-size: 14px;
+  }
+
+  .promotion__subtext {
+    font-size: 11px;
+  }
+
+  .promotion__timer {
+    margin-left: 15px;
+  }
+
+  .promotion__timer-label {
+    font-size: 11px;
+  }
+
+  .promotion__timer-value {
+    font-size: 18px;
   }
 
   .pricing-card__features {
@@ -992,6 +1192,49 @@
     -webkit-line-clamp: 3;
   }
 
+  .pricing-card__header {
+    min-height: 200px;
+  }
+
+  .pricing-card__header-buy-btn {
+    padding: 8px 6px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .promotion {
+    width: 100vw;
+    left: 0;
+    bottom: 6%;
+    transform: rotate(-2deg);
+    padding: 5px 0;
+  }
+
+  .promotion__discount {
+    margin-right: 6px;
+    font-size: 22px;
+  }
+
+  .promotion__text {
+    font-size: 12px;
+  }
+
+  .promotion__subtext {
+    font-size: 10px;
+  }
+
+  .promotion__timer {
+    margin-left: 12px;
+  }
+
+  .promotion__timer-label {
+    font-size: 10px;
+  }
+
+  .promotion__timer-value {
+    font-size: 16px;
+  }
+
   .carousel__track {
     transition: none !important;
     will-change: auto !important;
@@ -1065,6 +1308,39 @@
     width: auto;
     padding: 12px 20px;
     font-size: 12px;
+  }
+
+  .promotion {
+    width: 100vw;
+    left: 0;
+    bottom: 5%;
+    transform: rotate(-2deg);
+    padding: 4px 0;
+  }
+
+  .promotion__discount {
+    margin-right: 8px;
+    font-size: 24px;
+  }
+
+  .promotion__text {
+    font-size: 14px;
+  }
+
+  .promotion__subtext {
+    font-size: 11px;
+  }
+
+  .promotion__timer {
+    margin-left: 12px;
+  }
+
+  .promotion__timer-label {
+    font-size: 11px;
+  }
+
+  .promotion__timer-value {
+    font-size: 18px;
   }
 
   .carousel {
@@ -1250,6 +1526,14 @@
 }
 
 @media (max-width: 680px) {
+  .promotion {
+    bottom: 85%;
+  }
+
+  .promotion__subtext {
+    display: none;
+  }
+
   .licenses {
     padding: 40px 0;
   }

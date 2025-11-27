@@ -674,81 +674,98 @@ document.addEventListener("DOMContentLoaded", () => {
   const supportModal = document.getElementById("supportModal");
   const closeSupportModal = document.getElementById("closeSupportModal");
 
+  // Функция для открытия формы поддержки с предзаполненными данными
+  function openSupportForm(button, pricingCard) {
+    supportModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+    
+    waitForSupportForm(supportModal).then((form) => {
+      if (form) {
+        const labels = ['Имя', 'Телефон', 'Цена', 'Название тарифа'];
+        const allInputs = form.querySelectorAll('input');
+        const priceInput = allInputs[2];
+        const titleInput = allInputs[3];
+        
+        if (priceInput) {
+          priceInput.disabled = true;
+          priceInput.style.setProperty('color', 'gray', 'important');
+        }
+        
+        if (titleInput) {
+          titleInput.disabled = true;
+          titleInput.style.setProperty('color', 'gray', 'important');
+        }
+        
+        const b24FormFields = form.querySelectorAll('.b24-form-field');
+        b24FormFields.forEach((div, index) => {
+          const existingLabel = div.querySelector('.buy-modal-label');
+          if (!existingLabel && index < labels.length) {
+            let label = document.createElement('label');
+            label.innerHTML = labels[index];
+            label.classList.add('buy-modal-label');
+            div.prepend(label);
+          }
+        });
+        
+        if (priceInput && titleInput && pricingCard) {
+          const priceElement = pricingCard.querySelector('.pricing-card__price');
+          const titleElement = pricingCard.querySelector('.pricing-card__title');
+          
+          if (priceElement) {
+            priceInput.value = priceElement.textContent.trim();
+            triggerInputEvents(priceInput);
+          }
+          
+          if (titleElement) {
+            titleInput.value = titleElement.textContent.trim();
+            triggerInputEvents(titleInput);
+          }
+        }
+      }
+    });
+  }
+
   if (supportBuyButtons.length > 0 && supportModal) {
     supportBuyButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const pricingCard = button.closest(".pricing-card");
-        supportModal.classList.add("active");
-        document.body.style.overflow = "hidden";
-        
-        waitForSupportForm(supportModal).then((form) => {
-          if (form) {
-            const labels = ['Имя', 'Телефон', 'Цена', 'Название тарифа'];
-            const allInputs = form.querySelectorAll('input');
-            const priceInput = allInputs[2];
-            const titleInput = allInputs[3];
-            
-            if (priceInput) {
-              priceInput.disabled = true;
-              priceInput.style.setProperty('color', 'gray', 'important');
-            }
-            
-            if (titleInput) {
-              titleInput.disabled = true;
-              titleInput.style.setProperty('color', 'gray', 'important');
-            }
-            
-            const b24FormFields = form.querySelectorAll('.b24-form-field');
-            b24FormFields.forEach((div, index) => {
-              const existingLabel = div.querySelector('.buy-modal-label');
-              if (!existingLabel && index < labels.length) {
-                let label = document.createElement('label');
-                label.innerHTML = labels[index];
-                label.classList.add('buy-modal-label');
-                div.prepend(label);
-              }
-            });
-            
-            if (priceInput && titleInput && pricingCard) {
-              const priceElement = pricingCard.querySelector('.pricing-card__price');
-              const titleElement = pricingCard.querySelector('.pricing-card__title');
-              
-              if (priceElement) {
-                priceInput.value = priceElement.textContent.trim();
-                triggerInputEvents(priceInput);
-              }
-              
-              if (titleElement) {
-                titleInput.value = titleElement.textContent.trim();
-                triggerInputEvents(titleInput);
-              }
-            }
-          }
-        });
+        openSupportForm(button, pricingCard);
       });
-    });
-
-    if (closeSupportModal) {
-      closeSupportModal.addEventListener("click", () => {
-        supportModal.classList.remove("active");
-        document.body.style.overflow = "visible";
-      });
-    }
-
-    supportModal.addEventListener("click", (e) => {
-      if (e.target === supportModal) {
-        supportModal.classList.remove("active");
-        document.body.style.overflow = "visible";
-      }
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && supportModal.classList.contains("active")) {
-        supportModal.classList.remove("active");
-        document.body.style.overflow = "visible";
-      }
     });
   }
+
+  // Обработчик для кнопок "Купить" в header карточек технической поддержки
+  const supportHeaderBuyButtons = document.querySelectorAll('.pricing-card__header-buy-btn[data-plan^="support-"]');
+  
+  if (supportHeaderBuyButtons.length > 0 && supportModal) {
+    supportHeaderBuyButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const pricingCard = button.closest(".pricing-card");
+        openSupportForm(button, pricingCard);
+      });
+    });
+  }
+
+  if (closeSupportModal) {
+    closeSupportModal.addEventListener("click", () => {
+      supportModal.classList.remove("active");
+      document.body.style.overflow = "visible";
+    });
+  }
+
+  supportModal.addEventListener("click", (e) => {
+    if (e.target === supportModal) {
+      supportModal.classList.remove("active");
+      document.body.style.overflow = "visible";
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && supportModal.classList.contains("active")) {
+      supportModal.classList.remove("active");
+      document.body.style.overflow = "visible";
+    }
+  });
 
   // Обработчик для селекта количества пользователей в маркетплейсе
   const marketplaceUserCountSelect = document.querySelector('.marketplace-user-count-select[data-plan="marketplace-portal"]');
@@ -1195,3 +1212,91 @@ if (marketplaceTabs.length && marketplaceGroups.length) {
     });
   });
 }
+
+// Отсчет времени до 21:00 МСК сегодняшнего дня
+function updatePromotionTimer() {
+  const timerElement = document.getElementById('timerValue');
+  if (!timerElement) return;
+
+  // Получаем текущее время в МСК (UTC+3)
+  const now = new Date();
+  const mskOffset = 3 * 60; // МСК = UTC+3
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const mskTime = new Date(utc + (mskOffset * 60000));
+
+  // Устанавливаем целевое время: 21:00 МСК сегодня
+  const targetTime = new Date(mskTime);
+  targetTime.setHours(21, 0, 0, 0);
+
+  // Если уже прошло 21:00, устанавливаем на завтра
+  if (mskTime >= targetTime) {
+    targetTime.setDate(targetTime.getDate() + 1);
+  }
+
+  // Вычисляем разницу
+  const diff = targetTime - mskTime;
+
+  // Если время истекло, скрываем таймер
+  if (diff <= 0) {
+    timerElement.textContent = '00:00:00';
+    const timerContainer = document.querySelector('.promotion__timer');
+    if (timerContainer) {
+      timerContainer.style.display = 'none';
+    }
+    return;
+  }
+
+  // Вычисляем часы, минуты и секунды
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  // Форматируем с ведущими нулями
+  const formattedTime = 
+    String(hours).padStart(2, '0') + ':' +
+    String(minutes).padStart(2, '0') + ':' +
+    String(seconds).padStart(2, '0');
+
+  timerElement.textContent = formattedTime;
+}
+
+// Плавный скролл для ссылок с якорями
+function initSmoothScroll() {
+  // Обработчик для всех ссылок с якорями
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      
+      // Пропускаем пустые якоря
+      if (href === '#' || href === '') return;
+      
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        
+        // Вычисляем позицию с учетом возможного фиксированного хедера
+        const headerOffset = 80; // Отступ сверху в пикселях
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        // Плавный скролл
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
+// Запускаем таймер при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  updatePromotionTimer();
+  // Обновляем каждую секунду
+  setInterval(updatePromotionTimer, 1000);
+  
+  // Инициализируем плавный скролл
+  initSmoothScroll();
+});
