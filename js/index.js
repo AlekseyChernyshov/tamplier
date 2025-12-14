@@ -1025,7 +1025,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Закрытие по нажатию клавиши Escape
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("show")) {
+    if (e.key === "Escape" && modal && modal.classList.contains("show")) {
       closeModal();
     }
   });
@@ -1077,12 +1077,14 @@ const handleMouseDown = (e) => {
 const handleMouseUp = () => {
   isDown = false;
 };
-carousel.addEventListener("mousedown", handleMouseDown);
-carousel.addEventListener("mousemove", handleMouseMove);
-carousel.addEventListener("mouseup", handleMouseUp);
-carousel.addEventListener("touchstart", handleMouseDown);
-carousel.addEventListener("touchmove", handleMouseMove);
-carousel.addEventListener("touchend", handleMouseUp);
+if (carousel) {
+  carousel.addEventListener("mousedown", handleMouseDown);
+  carousel.addEventListener("mousemove", handleMouseMove);
+  carousel.addEventListener("mouseup", handleMouseUp);
+  carousel.addEventListener("touchstart", handleMouseDown);
+  carousel.addEventListener("touchmove", handleMouseMove);
+  carousel.addEventListener("touchend", handleMouseUp);
+}
 
 // Обработчики для стрелок навигации (только для мобильных)
 const carouselPrevBtn = document.getElementById("carouselPrev");
@@ -1195,3 +1197,5 @@ if (marketplaceTabs.length && marketplaceGroups.length) {
     });
   });
 }
+
+

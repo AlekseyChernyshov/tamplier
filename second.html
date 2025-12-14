@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корпоративный портал - Tamplier Digital</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <link rel="icon" href="imgs/favicon.png" >
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="imgs/main_header.png" alt="logo" />
+            </a>
+            <nav class="header__nav">
+                <ul class="header__list list-reset">
+                    <li class="header__item header__item--telegram">
+                        <a
+                            href="https://t.me/tamplierdigital"
+                            target="_blank"
+                            class="header__telegram-link"
+                        >
+                            <img
+                                src="imgs/telegram.svg"
+                                alt="Telegram"
+                                class="header__telegram-icon"
+                            />
+                        </a>
+                    </li>
+                    <li class="header__item header__item--email">
+                        <a href="mailto:vip@tamplier.su" class="header__mail-link">
+                            <img
+                            src="imgs/mail.svg"
+                            alt="Звонок по телефону"
+                            class="header__mail-icon"
+                            />
+                        </a>
+                    </li>
+                    <li class="header__item header__item--telegram">
+                        <a href="tel:+78122409050" class="header__call-link">
+                            <img
+                                src="imgs/phone.svg"
+                                alt="Звонок по телефону"
+                                class="header__telephone-icon"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="burger-menu">
+                <button class="burger-menu_button">
+                    <div class="burger-menu_lines"></div>
+                </button>
+
+                <nav class="burger-menu_nav">
+                    <a href="index.html" class="burger-menu_link">Главная</a>
+                </nav>
+
+                <div class="burger-menu_overlay"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="second__hero">
+            <div class="container">
+                <h1 class="second__hero-title">Корпоративный портал</h1>
+                <p class="second__hero-subtitle">Комплексное решение для цифровизации бизнеса</p>
+            </div>
+        </section>
+
+        <!-- Внутренний портал компании -->
+        <section class="portal-section">
+            <div class="container">
+                <h2 class="portal-section__title">Внутренний портал компании</h2>
+                <div class="portal-slider">
+                    <button class="portal-slider__btn portal-slider__btn--prev" aria-label="Предыдущий слайд">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="portal-slider__track">
+                        <div class="portal-slider__container">
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/news.png" alt="Лента новостей компании" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Лента новостей компании</h3>
+                                    <p class="portal-card__description">Единый канал для новостей, объявлений и важных уведомлений. Подходит для информирования сотрудников о регламентах, изменениях, событиях и управленческих решениях.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/calendar.jpg" alt="Календари" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Календари</h3>
+                                    <p class="portal-card__description">Личные и общие календари сотрудников, команд и компании. Используются для планирования встреч, загрузки специалистов, проектов и контроля занятости.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/negotiation.PNG" alt="Переговорки" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Переговорки</h3>
+                                    <p class="portal-card__description">Бронирование переговорных компании с учётом времени, участников и доступности. Исключает накладки и ручное согласование.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/files.png" alt="Файловое хранилище" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Файловое хранилище</h3>
+                                    <p class="portal-card__description">Единое место для хранения рабочих файлов с правами доступа, версиями и историей изменений. Файлы можно привязывать к задачам, сделкам уникальным разделам системы.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/mail.png" alt="Почта" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Почта</h3>
+                                    <p class="portal-card__description">Подключение корпоративной почты с возможностью работы прямо из Битрикс24. Письма автоматически связываются с клиентами, задачами и сделками.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/docs.jpg" alt="Работа с документами онлайн" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Работа с документами онлайн</h3>
+                                    <p class="portal-card__description">Совместное редактирование документов без скачивания файлов. Поддержка комментариев, истории правок и согласований.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/workTable.png" alt="Персонализированный рабочий стол компании" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Персонализированный рабочий стол компании</h3>
+                                    <p class="portal-card__description">Уникальная главная страница компании с важной корпоративной информацией.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/profile.jpg" alt="Профиль сотрудника" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Профиль сотрудника</h3>
+                                    <p class="portal-card__description">Карточка сотрудника с контактами, должностью, подчинённостью, графиком и активностью. Упрощает внутренние коммуникации и управление командой.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/workGroups.png" alt="Рабочие группы" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Рабочие группы</h3>
+                                    <p class="portal-card__description">Пространства для проектов, отделов и задач. Внутри — задачи, файлы, обсуждения, сроки и ответственность.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/messenger.png" alt="Мессенджер компании" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Мессенджер компании</h3>
+                                    <p class="portal-card__description">Встроенный корпоративный чат для личного и командного общения. Переписка не теряется, остаётся внутри компании и привязана к задачам и проектам.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/onlineMeets.png" alt="Онлайн-встречи" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Онлайн-встречи</h3>
+                                    <p class="portal-card__description">Видеозвонки и конференции без сторонних сервисов. Подходят для внутренних встреч, удалённых команд и обсуждения проектов.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/collabs.png" alt="Коллабы" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Коллабы</h3>
+                                    <p class="portal-card__description">Совместная работа с внешними участниками: подрядчиками, партнёрами, клиентами. Доступ только к нужным данным без риска утечек.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/boards.png" alt="Доски" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Доски</h3>
+                                    <p class="portal-card__description">Визуальные доски для планирования, мозговых штурмов и управления задачами. Используются как альтернатива сторонним сервисам.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/bitrixGPT.png" alt="BitrixGPt" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">BitrixGPt</h3>
+                                    <p class="portal-card__description">Встроенный AI-помощник для работы с текстами, задачами, CRM и аналитикой. Помогает ускорять рутинные операции и подготовку материалов.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/executiveDisciplines.png" alt="Исполнительская дисциплина" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Исполнительская дисциплина</h3>
+                                    <p class="portal-card__description">Контроль выполнения задач, сроков и ответственности. Руководитель видит реальную картину загрузки и исполнения, а не отчёты «для галочки».</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="portal-slider__btn portal-slider__btn--next" aria-label="Следующий слайд">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRM-система -->
+        <section class="portal-section portal-section--crm">
+            <div class="container">
+                <h2 class="portal-section__title">CRM-система</h2>
+                <div class="portal-slider">
+                    <button class="portal-slider__btn portal-slider__btn--prev" aria-label="Предыдущий слайд">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="portal-slider__track">
+                        <div class="portal-slider__container">
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/leadsDeals.png" alt="Лиды и Сделки" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Лиды и Сделки</h3>
+                                    <p class="portal-card__description">Управление воронками продаж от первого обращения до закрытия сделки. Настройка этапов, автоматизаций и контроля качества обработки.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/directory.jpg" alt="Справочник контрагентов" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Справочник контрагентов, поставщиков, подрядчиков и партнёров</h3>
+                                    <p class="portal-card__description">Единая база клиентов и партнёров с историей взаимодействий, документами и финансовыми показателями.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/onlinePay.png" alt="Онлайн-оплата" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Онлайн-оплата</h3>
+                                    <p class="portal-card__description">Приём оплат от клиентов напрямую из CRM через платёжные системы.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/check2.png" alt="Счета" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Счета</h3>
+                                    <p class="portal-card__description">Выставление счетов, контроль оплат и статусов без перехода в бухгалтерские сервисы.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/templates.jpg" alt="Шаблоны документов и КП" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Шаблоны документов и КП</h3>
+                                    <p class="portal-card__description">Автоматическое формирование коммерческих предложений, договоров и актов по шаблонам.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/telephonies.png" alt="Телефония" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Телефония</h3>
+                                    <p class="portal-card__description">Интеграция с IP-телефонией: запись разговоров, привязка звонков к сделкам, аналитика.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/messengeres2.png" alt="Мессенджеры" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Мессенджеры</h3>
+                                    <p class="portal-card__description">Объединение WhatsApp, Telegram, соцсетей и классифайдов в едином окне CRM.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/delivery.png" alt="Доставка" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Доставка</h3>
+                                    <p class="portal-card__description">Подключение служб доставки и расчёт стоимости прямо из сделки.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/catalog.png" alt="Каталог товаров" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Каталог товаров</h3>
+                                    <p class="portal-card__description">Управление товарами, услугами, ценами и остатками с привязкой к продажам.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/integration.png" alt="Интеграции с сайтами" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Интеграции с сайтами и интернет-магазинами</h3>
+                                    <p class="portal-card__description">Автоматический приём заявок и заказов без потери данных.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/registration.png" alt="Онлайн-запись" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Онлайн-запись</h3>
+                                    <p class="portal-card__description">Запись клиентов на услуги, замеры, встречи или консультации с синхронизацией календарей.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/b24sign.png" alt="Битрикс24.Подпись" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Битрикс24.Подпись</h3>
+                                    <p class="portal-card__description">Электронная подпись документов прямо из CRM без сторонних сервисов.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/contactsCenter.png" alt="Контакт-центр" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Контакт-центр</h3>
+                                    <p class="portal-card__description">Единое место для всех клиентских обращений и каналов связи.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/analytics.png" alt="Сквозная аналитика" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Сквозная аналитика</h3>
+                                    <p class="portal-card__description">Анализ эффективности рекламы, продаж и менеджеров от источника до оплаты.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/selaesScripts.png" alt="Скрипты продаж" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Скрипты продаж и речевая аналитика</h3>
+                                    <p class="portal-card__description">Контроль качества общения менеджеров и соблюдения сценариев продаж.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="portal-slider__btn portal-slider__btn--next" aria-label="Следующий слайд">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HR-портал компании -->
+        <section class="portal-section portal-section--hr">
+            <div class="container">
+                <h2 class="portal-section__title">HR-портал компании</h2>
+                <div class="portal-slider">
+                    <button class="portal-slider__btn portal-slider__btn--prev" aria-label="Предыдущий слайд">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="portal-slider__track">
+                        <div class="portal-slider__container">
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/structure.png" alt="Структура компании" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Структура компании</h3>
+                                    <p class="portal-card__description">Наглядная организационная схема с ролями и подчинённостью.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/time.png" alt="Учёт рабочего времени" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Учёт рабочего времени</h3>
+                                    <p class="portal-card__description">Фиксация рабочего времени, графиков, удалённой работы и переработок.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/report.png" alt="Рабочие отчёты" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Рабочие отчёты</h3>
+                                    <p class="portal-card__description">Регулярные отчёты сотрудников по задачам и результатам в течение дня / недели / месяца.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/kedo.png" alt="КЭДО" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">КЭДО</h3>
+                                    <p class="portal-card__description">Кадровый электронный документооборот: приказы, заявления, договоры.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/base.png" alt="База знаний" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">База знаний</h3>
+                                    <p class="portal-card__description">Единое хранилище инструкций, регламентов и обучающих материалов.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/adaptation.png" alt="Найм и адаптация сотрудников" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Найм и адаптация сотрудников</h3>
+                                    <p class="portal-card__description">Воронка подбора, онбординг и контроль адаптации новых сотрудников.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="portal-slider__btn portal-slider__btn--next" aria-label="Следующий слайд">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Автоматизация -->
+        <section class="portal-section portal-section--automation">
+            <div class="container">
+                <h2 class="portal-section__title">Автоматизация</h2>
+                <div class="portal-slider">
+                    <button class="portal-slider__btn portal-slider__btn--prev" aria-label="Предыдущий слайд">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="portal-slider__track">
+                        <div class="portal-slider__container">
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/documentFlow.png" alt="Внутренний документооборот" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Внутренний документооборот</h3>
+                                    <p class="portal-card__description">Автоматическое создание, согласование и хранение документов.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/memos.png" alt="Служебные записки" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Служебные записки</h3>
+                                    <p class="portal-card__description">Запуск стандартизированных запросов от сотрудников.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/requests.png" alt="Заявки" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Заявки</h3>
+                                    <p class="portal-card__description">Обработка внутренних заявок: IT, снабжение, сервис, согласования.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/documentsApproval.png" alt="Согласование документов" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Согласование документов</h3>
+                                    <p class="portal-card__description">Гибкие маршруты согласований с контролем сроков и статусов.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/automotization.png" alt="Автоматизация продаж" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Автоматизация продаж</h3>
+                                    <p class="portal-card__description">Роботы и триггеры для обработки лидов / сделок, постановки задач, уведомлений и контроля менеджеров.</p>
+                                </div>
+                            </div>
+                            <div class="portal-card">
+                                <div class="portal-card__image">
+                                    <img src="imgs/workSpaces.png" alt="Уникальные рабочие места" />
+                                </div>
+                                <div class="portal-card__content">
+                                    <h3 class="portal-card__title">Уникальные рабочие места для каждого отдела</h3>
+                                    <p class="portal-card__description">Настройка интерфейсов, процессов и автоматизаций под задачи конкретных подразделений.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="portal-slider__btn portal-slider__btn--next" aria-label="Следующий слайд">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма обратной связи -->
+        <section class="contacts">
+            <div class="container contacts__container">
+                <div class="contacts__grid">
+                    <div class="contacts__content">
+                        <p class="contacts__lead">
+                            Хотите внедрить Битрикс24 в вашей компании?
+                        </p>
+                        <p class="contacts__text">
+                            Заполните форму заявки и мы поможем:
+                          </p>
+                          <ul class="contacts__bullets">
+                            <li>Подобрать оптимальный тариф для вашей компании и ее процессов</li>
+                            <li>Подскажем с чего начать внедрение для быстрого старта.</li>
+                            <li>Расскажем как оптимизировать процессы, если вы уже работаете в Битрикс24.</li>
+                            <li>Поделимся реальными кейсами из вашей отрасли и расскажем об актуальных возможностях вашего тарифа.</li>
+                          </ul>
+                    </div>
+                    <div class="contacts__form">
+                        <div class="b24-form-container">
+                            <script data-b24-form="inline/124/44y65i" data-skip-moving="true">
+                                (function(w,d,u){
+                                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                                })(window,document,'https://cdn-ru.bitrix24.ru/b3349869/crm/form/loader_124.js');
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container footer__container">
+            <div class="footer__content">
+                <p class="footer__text" style="font-weight: 700; font-size: 18px; margin-bottom: 10px;">
+                    Tamplier digital
+                </p>
+                <p class="footer__text">
+                    Наша компания занимается автоматизацией.
+                </p>
+                <p class="footer__text">
+                    Работаем на платформе 1С-Битрикс24. Внедрение, настройка, доработка, обучение, консультация, сопровождение Битрикс24
+                </p>
+                <p class="footer__text politic" style="margin-top: 15px;">
+                    <a href="https://new.tamplier.su/%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8/">
+                        Политика конфиденциальности и обработки персональных данных
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+    <script src="js/second.js"></script>
+</body>
+</html>
