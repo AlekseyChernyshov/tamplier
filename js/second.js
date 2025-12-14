@@ -34,6 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const translateX = -currentIndex * (cardWidth + gap);
       
       container.style.transform = `translateX(${translateX}px)`;
+      
+      // Проверяем, что последняя карточка полностью видна
+      const cardsPerView = getCardsPerView();
+      if (currentIndex + cardsPerView >= cards.length) {
+        const lastCard = cards[cards.length - 1];
+        if (lastCard) {
+          const lastCardRect = lastCard.getBoundingClientRect();
+          const trackRect = slider.querySelector('.portal-slider__track').getBoundingClientRect();
+          // Если последняя карточка обрезана, корректируем позицию
+          if (lastCardRect.right > trackRect.right) {
+            const overflow = lastCardRect.right - trackRect.right;
+            container.style.transform = `translateX(${translateX - overflow}px)`;
+          }
+        }
+      }
     }
 
     function updateButtons() {
@@ -45,9 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
         prevBtn.style.pointerEvents = currentIndex > 0 ? 'auto' : 'none';
       }
       
+      // Разрешаем прокрутку до последней карточки включительно
       if (nextBtn) {
-        nextBtn.style.opacity = currentIndex < maxIndex ? '1' : '0.5';
-        nextBtn.style.pointerEvents = currentIndex < maxIndex ? 'auto' : 'none';
+        nextBtn.style.opacity = currentIndex <= maxIndex ? '1' : '0.5';
+        nextBtn.style.pointerEvents = currentIndex <= maxIndex ? 'auto' : 'none';
       }
     }
 
@@ -61,8 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function goToNext() {
       const cardsPerView = getCardsPerView();
+      // Увеличиваем maxIndex на 1, чтобы можно было прокрутить до последней карточки
       const maxIndex = Math.max(0, cards.length - cardsPerView);
-      if (currentIndex < maxIndex) {
+      if (currentIndex <= maxIndex) {
         currentIndex++;
         updateSlider();
         updateButtons();

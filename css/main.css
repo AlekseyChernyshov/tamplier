@@ -3322,6 +3322,7 @@ input.b24-form-control:-webkit-autofill {
   gap: 30px;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
+  padding-right: 60px;
 }
 
 .portal-card {
